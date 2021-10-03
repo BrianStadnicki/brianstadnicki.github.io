@@ -115,7 +115,7 @@ url = "https://www.linkedin.com/in/brian-stadnicki-474997214/"
 name = "RSS"
 icon = "fa fa-rss"
 weight = 6
-url = "https://stadnickibrian.github.io/index.xml"
+url = "https://brianstadnicki.github.io/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 
