@@ -40,3 +40,5 @@ A random collection of quips I've picked up, sorry about no attributions.
  * Human-centric Computing. I asked a dozen employees of that company what it meant, and not one could give a coherent answer
  * nobody ever got fired for buying Cisco
  * // We conservatively avoid transforming instructions with multiple uses because goats like cheese
+ * those who do not find time for exercise will have to find time for illness
+ * if you are going to buy a tour bus, be sure it's gray
