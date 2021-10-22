@@ -2,6 +2,8 @@
 author = "Brian Stadnicki"
 title = "Rust Reversing 1: Hello, world!"
 date = "2021-10-03"
+categories = [ "rust" ]
+tags = [ "reverse engineering", "rust" ]
 +++
 
 There's plenty of decompilers for most compiled languages, but what about rust? I couldn't find one, so let's try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who's decided that rust makes sense (it doesn't).
