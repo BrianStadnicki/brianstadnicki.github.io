@@ -3,4 +3,4 @@ title = "Contact"
 slug = "contact"
 +++
 
-Email me at stadnickibrian@gmail.com
+Hire me on [Fiverr](https://www.fiverr.com/malwarereverse) or [Email me](stadnickibrian@gmail.com)
