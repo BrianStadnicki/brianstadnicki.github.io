@@ -62,8 +62,8 @@ customJS = []
 # code = "code"
 
 # If you want to use Cloudflare Web Analytics(https://cloudflare.com) for analytics, add this section
-# [params.cloudflare]
-# token = "token"
+[params.cloudflare]
+token = "f5dd1cc794e748f0a1fa431f62434694"
 
 # If you want to use Matomo(https://matomo.org) for analytics, add this section
 # [params.matomo]
@@ -95,10 +95,10 @@ stylesrc = [
   "https://fonts.googleapis.com/",
   "https://cdn.jsdelivr.net/"
 ]
-scriptsrc = ["'self'", "'unsafe-inline'", "utteranc.es"]
+scriptsrc = ["'self'", "'unsafe-inline'", "utteranc.es", "static.cloudflareinsights.com"]
 prefetchsrc = ["'self'"]
 # connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
-connectsrc = ["'self'", "https://www.google-analytics.com"]
+connectsrc = ["'self'", "cloudflareinsights.com"]
 
 [taxonomies]
 category = "categories"
