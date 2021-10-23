@@ -42,3 +42,4 @@ A random collection of quips I've picked up, sorry about no attributions.
  * // We conservatively avoid transforming instructions with multiple uses because goats like cheese
  * those who do not find time for exercise will have to find time for illness
  * if you are going to buy a tour bus, be sure it's gray
+ * a pound sign is called an octothorpe
