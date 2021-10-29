@@ -43,3 +43,5 @@ A random collection of quips I've picked up, sorry about no attributions.
  * those who do not find time for exercise will have to find time for illness
  * if you are going to buy a tour bus, be sure it's gray
  * a pound sign is called an octothorpe
+ * The failure of this page to load is a consequence of the inherent contradictions in the capitalist mode of production
+ * I don’t know how to count that low
