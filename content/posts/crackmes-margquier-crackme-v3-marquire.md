@@ -1,6 +1,6 @@
 +++
 author = "Brian Stadnicki"
-title = "Crackmes: Marquire's CrackMe_V3_Marquire"
+title = "Marquire's CrackMe_V3_Marquire"
 date = "2021-10-24"
 categories = [ "crackmes" ]
 tags = [ "reverse engineering", "keygen", "crackmes.one" ]
