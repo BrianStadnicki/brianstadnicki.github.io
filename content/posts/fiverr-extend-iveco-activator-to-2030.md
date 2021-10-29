@@ -1,6 +1,6 @@
 +++
 author = "Brian Stadnicki"
-title = "Fiverr: extend Iveco activator to 2030"
+title = "Extending an Iveco activator to 2030"
 date = "2021-10-22"
 categories = [ "fiverr" ]
 tags = [ "reverse engineering", "unpacking", "java" ]
