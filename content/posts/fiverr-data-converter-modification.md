@@ -3,7 +3,7 @@ author = "Brian Stadnicki"
 title = "Failed to modify a data converter"
 date = "2021-10-26"
 categories = [ "fiverr" ]
-tags = [ "reverse engineering", ".NET", "failed" ]
+tags = [ "reverse engineering", ".NET", "failures" ]
 +++
 
 An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can't be done using the tool.

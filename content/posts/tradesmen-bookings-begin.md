@@ -2,6 +2,8 @@
 author = "Brian Stadnicki"
 title = "My startup: Tradesmen Bookings"
 date = "2021-10-08"
+categories = [ "startups" ]
+tags = [ "failures" ]
 +++
 
 ![Trademen Bookings banner](/posts/tradesmen-bookings-begin/banner.svg)
