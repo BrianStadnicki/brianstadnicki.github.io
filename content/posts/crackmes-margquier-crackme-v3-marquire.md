@@ -54,7 +54,7 @@ Here's the debugging results:
  - 10 - `[esp+11Bh]` == `[esp+3Ch]` / `Y`
  - 11 - `[esp+11Ch]` == `[esp+1Eh]` / `?`
 
-I'll turn that into some reasier to read pseudo-code.
+I'll turn that into some easier to read pseudo-code.
 
 ```
 input[0] == 'S' &&
