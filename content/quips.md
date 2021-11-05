@@ -45,3 +45,4 @@ A random collection of quips I've picked up, sorry about no attributions.
  * a pound sign is called an octothorpe
  * The failure of this page to load is a consequence of the inherent contradictions in the capitalist mode of production
  * I don’t know how to count that low
+ * As you get older, you recognise McDonalds not as a restaurant, but as a good toilet
