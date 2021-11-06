@@ -18,16 +18,16 @@ Quality      | 4.3
 Arch         | x86
 
 ## Initial run
-![Asks for the key](/posts/crackmes-margquier-crackme-v3-marquire/initial-run.png)
+![Asks for the key](/posts/crackmes-marquier-crackme-v3-marquire/initial-run.png)
 
 It's very standard, it just asks for the key and tells us if it's right or wrong.
 
 ## Initial analysis
-![Simple program structure](/posts/crackmes-margquier-crackme-v3-marquire/graph-overview.png)
+![Simple program structure](/posts/crackmes-marquier-crackme-v3-marquire/graph-overview.png)
 
 It's quite clear what's going on. Ask for the input, do some simple logic, say if right or wrong and exit.
 
-![Validation logic](/posts/crackmes-margquier-crackme-v3-marquire/validation-logic.png)
+![Validation logic](/posts/crackmes-marquier-crackme-v3-marquire/validation-logic.png)
 
 The validation logic just compares each letter of our input (`[esp+113h]`, `[esp+114h]` ...) to randomly placed out offsets (`[esp+39h]`, `[esp_2Ch]` ...), checking to see if they're equal.
 
@@ -36,7 +36,7 @@ Since I don't know where `esp` is statically, this'll require some basic dynamic
 
 The IDA Pro debugger makes this very easy, simply hover over the address and it'll preview the values there.
 
-![IDA Pro debugger's address preview](/posts/crackmes-margquier-crackme-v3-marquire/address-preview.png)
+![IDA Pro debugger's address preview](/posts/crackmes-marquier-crackme-v3-marquire/address-preview.png)
 
 Address `[esp+32h]` contains `S`, which is compared to the first letter of our input, which is at `[esp+112h]`.
 
@@ -74,6 +74,6 @@ input[10] == '?'
 
 ## Success
 
-![Success](/posts/crackmes-margquier-crackme-v3-marquire/success.png)
+![Success](/posts/crackmes-marquier-crackme-v3-marquire/success.png)
 
 There you have it, using a combination of static and dynamic analysis we cracked it. It was a very simple crackme, next time will be more difficult.
