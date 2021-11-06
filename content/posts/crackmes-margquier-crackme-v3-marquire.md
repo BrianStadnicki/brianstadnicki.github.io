@@ -9,11 +9,13 @@ tags = [ "reverse engineering", "keygen", "crackmes.one" ]
 Let's start off the crackmes series with a basic one: [Marquire's CrackMe_V3_Marquire
 ](https://crackmes.one/crackme/614ef84133c5d458fcb365ff).
 
- - Language: C/C++
- - Platform: Windows
- - Difficulty: 1.3
- - Quality: 4.3
- - Arch: x86
+Property     | Value
+-------------|------------
+Language     | C/C++
+Platform     | Windows
+Difficulty   | 1.3
+Quality      | 4.3
+Arch         | x86
 
 ## Initial run
 ![Asks for the key](/posts/crackmes-margquier-crackme-v3-marquire/initial-run.png)
