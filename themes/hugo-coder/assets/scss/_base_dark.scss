@@ -41,7 +41,13 @@
   pre {
     code {
       background-color: inherit;
-      color: inherit;
+      color: $fg-color-dark;
+    }
+  }
+
+  .highlight {
+    pre {
+      background-color: $alt-bg-color-dark !important;
     }
   }
 
