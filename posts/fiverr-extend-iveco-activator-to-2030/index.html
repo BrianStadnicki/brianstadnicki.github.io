@@ -1,309 +1,185 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="en">
-    <meta name="color-scheme" content="light dark">
-
-    
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
-
-    
-
-    <meta name="author" content="Brian Stadnicki">
-    <meta name="description" content="A customer on Fiverr sent me a copy of the Iveco easy activator v1.01. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
+<meta name=author content="Brian Stadnicki">
+<meta name=description content="A customer on Fiverr sent me a copy of the Iveco easy activator v1.01. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.
 Running it    First of all, let&rsquo;s run it and see what we&rsquo;re working with.">
-    <meta name="keywords" content="blog,developer,personal">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Extending an Iveco activator to 2030"/>
-<meta name="twitter:description" content="A customer on Fiverr sent me a copy of the Iveco easy activator v1.01. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.
-Running it    First of all, let&rsquo;s run it and see what we&rsquo;re working with."/>
-
-    <meta property="og:title" content="Extending an Iveco activator to 2030" />
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Extending an Iveco activator to 2030">
+<meta name=twitter:description content="A customer on Fiverr sent me a copy of the Iveco easy activator v1.01. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.
+Running it    First of all, let&rsquo;s run it and see what we&rsquo;re working with.">
+<meta property="og:title" content="Extending an Iveco activator to 2030">
 <meta property="og:description" content="A customer on Fiverr sent me a copy of the Iveco easy activator v1.01. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.
-Running it    First of all, let&rsquo;s run it and see what we&rsquo;re working with." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-10-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-22T00:00:00+00:00" />
-
-
-
-    <title>
-  Extending an Iveco activator to 2030 · Brian Stadnicki
+Running it    First of all, let&rsquo;s run it and see what we&rsquo;re working with.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-10-22T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-10-22T00:00:00+00:00">
+<title>
+Extending an Iveco activator to 2030 · Brian Stadnicki
 </title>
-
-    
-      <link rel="canonical" href="https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/">
-    
-
-    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-    
-      
-      
-      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-      
-        
-        
-        <link rel="stylesheet" href="/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css" integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin="anonymous" media="screen" />
-      
-    
-
-    
-
-    
-
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-    
-
-    <meta name="generator" content="Hugo 0.89.2" />
-  </head>
-
-  
-  
-    
-  
-  <body class="preload-transitions colorscheme-auto"
-        onload=""
-  >
-    
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
+<link rel=canonical href=https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css integrity="sha256-cIaG+KuBdukdRPy+SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
 </div>
-
-
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      Brian Stadnicki
-    </a>
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/quips/">Quips</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/contact/">Contact me</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+Brian Stadnicki
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/quips/>Quips</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/contact/>Contact me</a>
+</li>
+</ul>
+</section>
 </nav>
-
-
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/">
-              Extending an Iveco activator to 2030
-            </a>
-          </h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime='2021-10-22T00:00:00Z'>
-                22 October, 2021
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
-            </span>
-          </div>
-          
-          <div class="categories">
-  <i class="fa fa-folder" aria-hidden="true"></i>
-    <a href="/categories/fiverr/">fiverr</a></div>
-
-          <div class="tags">
-  <i class="fa fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/reverse-engineering/">reverse engineering</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/unpacking/">unpacking</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/java/">java</a>
-    </span></div>
-
-        </div>
-      </header>
-
-      <div>
-        
-        <p>A customer on Fiverr sent me a copy of the <a href="https://www.obdexpress.co.uk/wholesale/iveco-easy-activator-keygen-75453.html">Iveco easy activator v1.01</a>. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.</p>
-<h2 id="running-it">
-  Running it
-  <a class="heading-link" href="#running-it">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://brianstadnicki.github.io/posts/fiverr-extend-iveco-activator-to-2030/>
+Extending an Iveco activator to 2030
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-10-22T00:00:00Z>
+22 October, 2021
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+2-minute read
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/fiverr/>fiverr</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/reverse-engineering/>reverse engineering</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/unpacking/>unpacking</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/java/>java</a>
+</span></div>
+</div>
+</header>
+<div>
+<p>A customer on Fiverr sent me a copy of the <a href=https://www.obdexpress.co.uk/wholesale/iveco-easy-activator-keygen-75453.html>Iveco easy activator v1.01</a>. This looks to be a key generator to program Iveco trucks. The customer has requested that I add the years up to 2030 to it, as the tool only works from 2017 to 2020. Nice to see future proofing, even if I really doubt the key algorithm won&rsquo;t change in that time.</p>
+<h2 id=running-it>
+Running it
+<a class=heading-link href=#running-it>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
 </h2>
 <p>First of all, let&rsquo;s run it and see what we&rsquo;re working with.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/first-look.png" alt="Opening the program"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/first-look.png alt="Opening the program"></p>
 <p>Looks like a straight forward keygen, so let&rsquo;s get into its internals.</p>
-<h2 id="first-look-at-internals">
-  First look at internals
-  <a class="heading-link" href="#first-look-at-internals">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
+<h2 id=first-look-at-internals>
+First look at internals
+<a class=heading-link href=#first-look-at-internals>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
 </h2>
 <p>Seeing how it&rsquo;s an exe, naturally I open it in IDA first.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/java-strings.png" alt="Many Java strings"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/java-strings.png alt="Many Java strings"></p>
 <p>There&rsquo;s a lot of Java related strings, so it&rsquo;s worth to check if this is really just a bunch of Java classes wrapped in an exe.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/many-classes.png" alt="Many classes"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/many-classes.png alt="Many classes"></p>
 <p>Extracting it reveals that it indeed is, it contains the Java classes that are then loaded and ran.</p>
-<h2 id="java-reverse-engineering">
-  Java reverse engineering
-  <a class="heading-link" href="#java-reverse-engineering">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
+<h2 id=java-reverse-engineering>
+Java reverse engineering
+<a class=heading-link href=#java-reverse-engineering>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
 </h2>
 <p>I&rsquo;ll use the trusty JD-GUI decompiler to check out what&rsquo;s going on.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/manifest.png" alt="Manifest"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/manifest.png alt=Manifest></p>
 <p>The main class is <code>util.JDialog1</code>, based off the naming it also contains the GUI logic.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/decompile-internal-error.png" alt="Decompile error"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/decompile-internal-error.png alt="Decompile error"></p>
 <p>JD-GUI isn&rsquo;t the most reliable decompiler, so I&rsquo;ll switch to Recaf.</p>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/JDialog1-decompile.png" alt="Dates spotted"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/JDialog1-decompile.png alt="Dates spotted"></p>
 <p>That was easy to spot, Recaf has the very useful feature of recompiling classes, so this will be an easy one to fix.</p>
 <p>Now I open the exe in 7zip (windows/winrar will corrupt it) and simply replace the class with my version. Quick and easy.</p>
-<h2 id="success">
-  Success
-  <a class="heading-link" href="#success">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
+<h2 id=success>
+Success
+<a class=heading-link href=#success>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
 </h2>
-<p><img src="/posts/fiverr-extend-iveco-activator-to-2030/completed.png" alt="It works"></p>
+<p><img src=/posts/fiverr-extend-iveco-activator-to-2030/completed.png alt="It works"></p>
 <p>Now the &ldquo;Year&rdquo; dropdown has the dates 2017-2030 and the activation code changes, so hopefully this will work.</p>
-<h2 id="conclusion">
-  Conclusion
-  <a class="heading-link" href="#conclusion">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
+<h2 id=conclusion>
+Conclusion
+<a class=heading-link href=#conclusion>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
 </h2>
 <p>Overall this was a very simple gig. It was just a wrapped Java program, and the Java wasn&rsquo;t even obfuscated.</p>
-
-      </div>
-
-
-      <footer>
-        
-
-
-        
-        
-        <script src="https://utteranc.es/client.js"
-    repo= "brianstadnicki/brianstadnicki.github.io"
-    issue-term="pathname"
-    label=""
-    theme="preferred-color-scheme"
-    crossorigin="anonymous"
-    async>
-  </script>
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      
-  <footer class="footer">
-    <section class="container">
-      
-        <p>Education through a 1000 mistakes</p>
-      
-      
-        ©
-        
-        2021
-         Brian Stadnicki 
-      
-      
-         · 
-        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-      
-      
-        
-      
-    </section>
-  </footer>
-
-
-    </main>
-
-    
-      
-      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
-
-
-
-    
-
-    
-  </body>
-
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+<p>Education through a 1000 mistakes</p>
+©
+2021
+Brian Stadnicki
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+<script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
+</body>
 </html>
