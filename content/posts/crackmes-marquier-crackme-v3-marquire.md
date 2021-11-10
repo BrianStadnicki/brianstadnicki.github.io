@@ -3,7 +3,7 @@ author = "Brian Stadnicki"
 title = "Cracking Marquire's CrackMe_V3_Marquire"
 date = "2021-10-24"
 categories = [ "crackmes" ]
-tags = [ "reverse engineering", "keygen", "crackmes.one" ]
+tags = [ "reverse engineering", "keygen", "crackmes.one", "x86" ]
 +++
 
 Let's start off the crackmes series with a basic one: [Marquire's CrackMe_V3_Marquire
