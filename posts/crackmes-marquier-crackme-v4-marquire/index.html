@@ -1,19 +1,172 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;"><meta name=author content="Brian Stadnicki"><meta name=description content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
-   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Cracking Marquire's CrackMe_V4_Marquire"><meta name=twitter:description content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
-   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct."><meta property="og:title" content="Cracking Marquire's CrackMe_V4_Marquire"><meta property="og:description" content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
-   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct."><meta property="og:type" content="article"><meta property="og:url" content="https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/"><meta property="article:published_time" content="2021-11-07T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-07T00:00:00+00:00"><title>Cracking Marquire's CrackMe_V4_Marquire · Brian Stadnicki</title><link rel=canonical href=https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.8e2b2510f60e1715eae08d113a808dcdaf17f6f711edb9e969be38d0074d240d.css integrity="sha256-jislEPYOFxXq4I0ROoCNza8X9vcR7bnpab440AdNJA0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.c70a5bbf9c7e831f99d04251fb0cea5cfd006fbb5a9776a53198938516b3a9c9.css integrity="sha256-xwpbv5x+gx+Z0EJR+wzqXP0Ab7tal3alMZiThRazqck=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.80.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Brian Stadnicki</a>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
+<meta name=author content="Brian Stadnicki">
+<meta name=description content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
+   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct.">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Cracking Marquire's CrackMe_V4_Marquire">
+<meta name=twitter:description content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
+   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct.">
+<meta property="og:title" content="Cracking Marquire's CrackMe_V4_Marquire">
+<meta property="og:description" content="This crackme will be a bit more difficult than the last one: Marquire&rsquo;s CrackMe_V4_Marquire
+   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-11-07T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-11-07T00:00:00+00:00">
+<title>
+Cracking Marquire's CrackMe_V4_Marquire · Brian Stadnicki
+</title>
+<link rel=canonical href=https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css integrity="sha256-cIaG+KuBdukdRPy+SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+Brian Stadnicki
+</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/quips/>Quips</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/>Cracking Marquire's CrackMe_V4_Marquire</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i><time datetime=2021-11-07T00:00:00Z>7 November, 2021</time></span>
-<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>4-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i><a href=/categories/crackmes/>crackmes</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i><span class=tag><a href=/tags/reverse-engineering/>reverse engineering</a></span>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/quips/>Quips</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/contact/>Contact me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/>
+Cracking Marquire's CrackMe_V4_Marquire
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-11-07T00:00:00Z>
+7 November, 2021
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+4-minute read
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/crackmes/>crackmes</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/reverse-engineering/>reverse engineering</a>
+</span>
 <span class=separator>•</span>
-<span class=tag><a href=/tags/keygen/>keygen</a></span>
+<span class=tag>
+<a href=/tags/keygen/>keygen</a>
+</span>
 <span class=separator>•</span>
-<span class=tag><a href=/tags/crackmes.one/>crackmes.one</a></span></div></div></header><div><p>This crackme will be a bit more difficult than the last one: <a href=https://crackmes.one/crackme/6152314933c5d458fcb36665>Marquire&rsquo;s CrackMe_V4_Marquire</a></p><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Language</td><td>C/C++</td></tr><tr><td>Platform</td><td>Windows</td></tr><tr><td>Difficulty</td><td>2.7</td></tr><tr><td>Quality</td><td>4.0</td></tr><tr><td>Arch</td><td>x86</td></tr></tbody></table><h1 id=initial-run>Initial run
-<a class=heading-link href=#initial-run><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## The goal of this crackme is to find the key! ##
+<span class=tag>
+<a href=/tags/crackmes.one/>crackmes.one</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/x86/>x86</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/python/>python</a>
+</span></div>
+</div>
+</header>
+<div>
+<p>This crackme will be a bit more difficult than the last one: <a href=https://crackmes.one/crackme/6152314933c5d458fcb36665>Marquire&rsquo;s CrackMe_V4_Marquire</a></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>C/C++</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td>Difficulty</td>
+<td>2.7</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Arch</td>
+<td>x86</td>
+</tr>
+</tbody>
+</table>
+<h1 id=initial-run>
+Initial run
+<a class=heading-link href=#initial-run>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## The goal of this crackme is to find the key! ##
 
 Enter the key :
-</code></pre></div><p>Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct.</p><h1 id=initial-analysis>Initial analysis
-<a class=heading-link href=#initial-analysis><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>            +-----+
+</code></pre></div><p>Asks for a key, exits if it&rsquo;s false, and gives a message if it&rsquo;s correct.</p>
+<h1 id=initial-analysis>
+Initial analysis
+<a class=heading-link href=#initial-analysis>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>            +-----+
             |Print|
             +--+--+
                |
@@ -36,8 +189,14 @@ Enter the key :
               +-------+    | |     +-------+
               |Success&lt;----+ +-----&gt;Failure|
               +-------+            +-------+
-</code></pre></div><p>This is a very high level overview of what this program does, it&rsquo;s simple enough to see all the logic in the main function.</p><h1 id=input-string-encryption>Input string encryption
-<a class=heading-link href=#input-string-encryption><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:00402160 asterisk_and_continue:
+</code></pre></div><p>This is a very high level overview of what this program does, it&rsquo;s simple enough to see all the logic in the main function.</p>
+<h1 id=input-string-encryption>
+Input string encryption
+<a class=heading-link href=#input-string-encryption>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:00402160 asterisk_and_continue:
 .text:00402160 lea     edx, [esi+3]    ; encryption key
 .text:00402163 xor     dl, ds:400000h  ; 4Dh
 .text:00402169 add     esi, 1          ; inc counter
@@ -45,15 +204,22 @@ Enter the key :
 .text:0040216E mov     [esp+esi+0A1h], al ; store encrypted char
 .text:00402175 mov     dword ptr [esp], 2Ah ; &#39;*&#39;
 .text:0040217C call    putchar
-</code></pre></div><p>As you can see, the character inputted is xor encrypted before it&rsquo;s stored.</p><p>Here&rsquo;s the python code for this encryption:</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> encrypt(input):
+</code></pre></div><p>As you can see, the character inputted is xor encrypted before it&rsquo;s stored.</p>
+<p>Here&rsquo;s the python code for this encryption:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> encrypt(input):
   encrypted = <span style=font-style:italic>&#34;&#34;</span>
   counter = 3
   <span style=font-weight:700>for</span> c <span style=font-weight:700>in</span> input:
     encrypted += chr(ord(c) ^ counter ^ 0x4d)
     counter += 1
   <span style=font-weight:700>return</span> encrypted
-</code></pre></div><h1 id=input-string-hashing>Input string hashing
-<a class=heading-link href=#input-string-hashing><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:004023E3 hash_input:
+</code></pre></div><h1 id=input-string-hashing>
+Input string hashing
+<a class=heading-link href=#input-string-hashing>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:004023E3 hash_input:
 .text:004023E3 movsx   esi, byte ptr [eax] ; get current char
 .text:004023E6 add     eax, 1 ; inc char counter
 .text:004023E9 imul    esi, edx ; mul char by edx
@@ -65,23 +231,51 @@ Enter the key :
 .text:004023FE mov     [esp], ebx
 .text:00402401 jz      short success_caller
 .text:00402403 call    failure
-</code></pre></div><p>There are multiple things we can infer from this to aid the python code for this:</p><ul><li><code>eax</code> points to the current char in the encrypted string</li><li>the encrypted string&rsquo;s characters are looped over one by one</li><li><code>edi</code> is the hash result, as it&rsquo;s used in the validation comparison and <code>ecx</code> isn&rsquo;t mentioned in this snippet</li><li>the hash result is added to with the char multiplied by the multiplication counter</li><li>the multiplication counter is incremented by <code>0FFFFh</code> each cycle</li><li>The hash only reads the first 13 characters, as <code>0CFFF3h / 0FFFFh == D</code>, therefore the input string must have at least 13 characters.</li></ul><p>Here&rsquo;s the python code for this hash:</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> hash(input):
+</code></pre></div><p>There are multiple things we can infer from this to aid the python code for this:</p>
+<ul>
+<li><code>eax</code> points to the current char in the encrypted string</li>
+<li>the encrypted string&rsquo;s characters are looped over one by one</li>
+<li><code>edi</code> is the hash result, as it&rsquo;s used in the validation comparison and <code>ecx</code> isn&rsquo;t mentioned in this snippet</li>
+<li>the hash result is added to with the char multiplied by the multiplication counter</li>
+<li>the multiplication counter is incremented by <code>0FFFFh</code> each cycle</li>
+<li>The hash only reads the first 13 characters, as <code>0CFFF3h / 0FFFFh == D</code>, therefore the input string must have at least 13 characters.</li>
+</ul>
+<p>Here&rsquo;s the python code for this hash:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> hash(input):
   counter = 0
   result = 0
   <span style=font-weight:700>for</span> i <span style=font-weight:700>in</span> range(0, 13):
     result += ord(input[i]) * counter
     counter += 0xFFFF
   <span style=font-weight:700>return</span> result
-</code></pre></div><h1 id=result-comparison>Result comparison
-<a class=heading-link href=#result-comparison><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:004023FC cmp     ecx, edi ; compare result with correct hash
+</code></pre></div><h1 id=result-comparison>
+Result comparison
+<a class=heading-link href=#result-comparison>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.text:004023FC cmp     ecx, edi ; compare result with correct hash
 .text:004023FE mov     [esp], ebx
 .text:00402401 jz      short success_caller
 .text:00402403 call    failure
-</code></pre></div><p>This is quite simple, the input was correct if the hash is equal to the correct hash.</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> validate(input_hash, correct_hash):
+</code></pre></div><p>This is quite simple, the input was correct if the hash is equal to the correct hash.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> validate(input_hash, correct_hash):
   <span style=font-weight:700>return</span> input_hash == correct_hash
-</code></pre></div><h1 id=correct-hash>Correct hash
-<a class=heading-link href=#correct-hash><i class="fa fa-link" aria-hidden=true></i></a></h1><p>The correct hash, as far as I can tell, does not depend on any external factors, so it will never change. Therefore, checking <code>ecx</code> at <code>.text:004023FC cmp ecx, edi</code> shows us that the correct hash is <code>0x931F6CE</code>.</p><h1 id=brute-force-code>Brute force code
-<a class=heading-link href=#brute-force-code><i class="fa fa-link" aria-hidden=true></i></a></h1><p>Now that we have all the parts to this, we can create a brute-force solution. You can download it <a href=/posts/crackmes-marquier-crackme-v4-marquire/keygen.py>here</a></p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>import</span> <span style=font-weight:700>random</span>
+</code></pre></div><h1 id=correct-hash>
+Correct hash
+<a class=heading-link href=#correct-hash>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<p>The correct hash, as far as I can tell, does not depend on any external factors, so it will never change. Therefore, checking <code>ecx</code> at <code>.text:004023FC cmp ecx, edi</code> shows us that the correct hash is <code>0x931F6CE</code>.</p>
+<h1 id=brute-force-code>
+Brute force code
+<a class=heading-link href=#brute-force-code>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<p>Now that we have all the parts to this, we can create a brute-force solution. You can download it <a href=/posts/crackmes-marquier-crackme-v4-marquire/keygen.py>here</a></p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>import</span> <span style=font-weight:700>random</span>
 <span style=font-weight:700>import</span> <span style=font-weight:700>string</span>
 
 <span style=font-weight:700>def</span> encrypt(input):
@@ -105,18 +299,48 @@ Enter the key :
 
 possible_chars = string.ascii_letters + string.digits + string.punctuation
 
-<span style=font-weight:700>while</span> True:
+<span style=font-weight:700>while</span> <span style=font-weight:700>True</span>:
   key = <span style=font-style:italic>&#39;&#39;</span>.join(random.choice(possible_chars) <span style=font-weight:700>for</span> i <span style=font-weight:700>in</span> range(13))
   valid = validate(hash(encrypt(key)), 0x931F6CE)
   <span style=font-weight:700>if</span> valid:
-    <span style=font-weight:700>print</span>(key)
-</code></pre></div><h1 id=success>Success
-<a class=heading-link href=#success><i class="fa fa-link" aria-hidden=true></i></a></h1><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## The goal of this crackme is to find the key! ##
+    print(key)
+</code></pre></div><h1 id=success>
+Success
+<a class=heading-link href=#success>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## The goal of this crackme is to find the key! ##
 
 Enter the key : *************
 -&gt;right!
-</code></pre></div><p>Example valid keys:</p><ul><li><code>HJJe)lo\P_vFH</code></li><li><code>(XNl(WiAVtIBy</code></li><li><code>1ARaaf@DeVSjt</code></li><li><code>X3fXDZEdiBR]y</code></li></ul><p>According to the author, the original key was <code>A_BIT_HARDER?</code>, however where there are hashes, there are hash collisions.</p></div><footer><script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article></section></div><footer class=footer><section class=container><p>Education through a 1000 mistakes</p>©
+</code></pre></div><p>Example valid keys:</p>
+<ul>
+<li><code>HJJe)lo\P_vFH</code></li>
+<li><code>(XNl(WiAVtIBy</code></li>
+<li><code>1ARaaf@DeVSjt</code></li>
+<li><code>X3fXDZEdiBR]y</code></li>
+</ul>
+<p>According to the author, the original key was <code>A_BIT_HARDER?</code>, however where there are hashes, there are hash collisions.</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+<p>Education through a 1000 mistakes</p>
+©
 2021
 Brian Stadnicki
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.a350362441276ec5c1671926420497bb8e52b63ead1d51d3c9bc4342d0039526.js integrity="sha256-o1A2JEEnbsXBZxkmQgSXu45Stj6tHVHTybxDQtADlSY="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body></html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+<script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
+</body>
+</html>
