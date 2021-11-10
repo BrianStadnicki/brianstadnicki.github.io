@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rust on Brian Stadnicki</title><link>https://brianstadnicki.github.io/tags/rust/</link><description>Recent content in rust on Brian Stadnicki</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 03 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml"/><item><title>Rust Reversing 1: Hello, world!</title><link>https://brianstadnicki.github.io/posts/rust-reversing-01/</link><pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/rust-reversing-01/</guid><description>There&amp;rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&amp;rsquo;t find one, so let&amp;rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&amp;rsquo;s decided that rust makes sense (it doesn&amp;rsquo;t).
-Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&amp;rsquo;m trying to learn.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rust on Brian Stadnicki</title>
+    <link>https://brianstadnicki.github.io/tags/rust/</link>
+    <description>Recent content in rust on Brian Stadnicki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust Reversing 1: Hello, world!</title>
+      <link>https://brianstadnicki.github.io/posts/rust-reversing-01/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/rust-reversing-01/</guid>
+      <description>There&amp;rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&amp;rsquo;t find one, so let&amp;rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&amp;rsquo;s decided that rust makes sense (it doesn&amp;rsquo;t).
+Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&amp;rsquo;m trying to learn.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crackmes on Brian Stadnicki</title><link>https://brianstadnicki.github.io/categories/crackmes/</link><description>Recent content in crackmes on Brian Stadnicki</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/categories/crackmes/index.xml" rel="self" type="application/rss+xml"/><item><title>Cracking Marquire's CrackMe_V4_Marquire</title><link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</guid><description>This crackme will be a bit more difficult than the last one: Marquire&amp;rsquo;s CrackMe_V4_Marquire
-Property Value Language C/C++ Platform Windows Difficulty 2.7 Quality 4.0 Arch x86 Initial run ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&amp;rsquo;s false, and gives a message if it&amp;rsquo;s correct.</description></item><item><title>Cracking Marquire's CrackMe_V3_Marquire</title><link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</guid><description>Let&amp;rsquo;s start off the crackmes series with a basic one: Marquire&amp;rsquo;s CrackMe_V3_Marquire .
-Property Value Language C/C++ Platform Windows Difficulty 1.3 Quality 4.3 Arch x86 Initial run It&amp;rsquo;s very standard, it just asks for the key and tells us if it&amp;rsquo;s right or wrong.
-Initial analysis It&amp;rsquo;s quite clear what&amp;rsquo;s going on.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crackmes on Brian Stadnicki</title>
+    <link>https://brianstadnicki.github.io/categories/crackmes/</link>
+    <description>Recent content in crackmes on Brian Stadnicki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/categories/crackmes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cracking Marquire&#39;s CrackMe_V4_Marquire</title>
+      <link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</guid>
+      <description>This crackme will be a bit more difficult than the last one: Marquire&amp;rsquo;s CrackMe_V4_Marquire
+   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&amp;rsquo;s false, and gives a message if it&amp;rsquo;s correct.</description>
+    </item>
+    
+    <item>
+      <title>Cracking Marquire&#39;s CrackMe_V3_Marquire</title>
+      <link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</guid>
+      <description>Let&amp;rsquo;s start off the crackmes series with a basic one: Marquire&amp;rsquo;s CrackMe_V3_Marquire .
+   Property Value     Language C/C++   Platform Windows   Difficulty 1.3   Quality 4.3   Arch x86    Initial run    It&amp;rsquo;s very standard, it just asks for the key and tells us if it&amp;rsquo;s right or wrong.
+Initial analysis    It&amp;rsquo;s quite clear what&amp;rsquo;s going on.</description>
+    </item>
+    
+  </channel>
+</rss>

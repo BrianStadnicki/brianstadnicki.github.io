@@ -1,7 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>x86 on Brian Stadnicki</title><link>https://brianstadnicki.github.io/tags/x86/</link><description>Recent content in x86 on Brian Stadnicki</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/x86/index.xml" rel="self" type="application/rss+xml"/><item><title>Analysis of vzlom_vk (Failed)</title><link>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</link><pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</guid><description>Malware obtained from any.run. It&amp;rsquo;s an unknown executable which unpacks itself, fails to run update.exe and prints out some russian.
-Property Value MD5 18b065e37c55a00d7a023f5cef02bde4 SHA1 fb6e6596c617f932cd9c7740b29ed6f5dda8a88c SHA256 bc4896abbf0726df8b9ef9134d584bbe1b649f59e453bbc327f8cd5b5b5a0651 File Type Portable Executable 32 File Info Microsoft Visual C++ 8 First run When run, it prints out the following text:</description></item><item><title>Cracking Marquire's CrackMe_V4_Marquire</title><link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</guid><description>This crackme will be a bit more difficult than the last one: Marquire&amp;rsquo;s CrackMe_V4_Marquire
-Property Value Language C/C++ Platform Windows Difficulty 2.7 Quality 4.0 Arch x86 Initial run ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&amp;rsquo;s false, and gives a message if it&amp;rsquo;s correct.</description></item><item><title>Analysis of FreeBitco.in Next Roll Prediction</title><link>https://brianstadnicki.github.io/posts/malware-freebitcoin-next-roll-prediction/</link><pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/malware-freebitcoin-next-roll-prediction/</guid><description>Malware obtained from any.run. It&amp;rsquo;s a bitcoin scam executable.
-Property Value MD5 afb30fed336e9b1e5e8ea5d941691b2a SHA1 afeb330ea75da11608bc4f32d3490ed38cfd4c11 SHA256 16b4664969ce27b9914dc9d41b5baa16a341e00f442527efffd478a73a014fa1 2 EXEs dropped Running procmon when running the malware shows that 2 possibly interesting executables are created: C:\Users\IEUser\AppData\Roaming\Microsoft\gons.exe and C:\Users\IEUser\AppData\Roaming\Microsoft\temp5789e.exe. Both of these dropped executables are .NET assemblies, so they should be trivial to reverse.
-gons.exe Opening gons in dnSpy shows that this executable is responsible for the GUI, and I didn&amp;rsquo;t notice any malicious behaviour initially.</description></item><item><title>Cracking Marquire's CrackMe_V3_Marquire</title><link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</link><pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</guid><description>Let&amp;rsquo;s start off the crackmes series with a basic one: Marquire&amp;rsquo;s CrackMe_V3_Marquire .
-Property Value Language C/C++ Platform Windows Difficulty 1.3 Quality 4.3 Arch x86 Initial run It&amp;rsquo;s very standard, it just asks for the key and tells us if it&amp;rsquo;s right or wrong.
-Initial analysis It&amp;rsquo;s quite clear what&amp;rsquo;s going on.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>x86 on Brian Stadnicki</title>
+    <link>https://brianstadnicki.github.io/tags/x86/</link>
+    <description>Recent content in x86 on Brian Stadnicki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/x86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis of vzlom_vk (Failed)</title>
+      <link>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</guid>
+      <description>Malware obtained from any.run. It&amp;rsquo;s an unknown executable which unpacks itself, fails to run update.exe and prints out some russian.
+   Property Value     MD5 18b065e37c55a00d7a023f5cef02bde4   SHA1 fb6e6596c617f932cd9c7740b29ed6f5dda8a88c   SHA256 bc4896abbf0726df8b9ef9134d584bbe1b649f59e453bbc327f8cd5b5b5a0651   File Type Portable Executable 32   File Info Microsoft Visual C++ 8    First run    When run, it prints out the following text:</description>
+    </item>
+    
+    <item>
+      <title>Cracking Marquire&#39;s CrackMe_V4_Marquire</title>
+      <link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v4-marquire/</guid>
+      <description>This crackme will be a bit more difficult than the last one: Marquire&amp;rsquo;s CrackMe_V4_Marquire
+   Property Value     Language C/C++   Platform Windows   Difficulty 2.7   Quality 4.0   Arch x86    Initial run    ## The goal of this crackme is to find the key! ## Enter the key : Asks for a key, exits if it&amp;rsquo;s false, and gives a message if it&amp;rsquo;s correct.</description>
+    </item>
+    
+    <item>
+      <title>Analysis of FreeBitco.in Next Roll Prediction</title>
+      <link>https://brianstadnicki.github.io/posts/malware-freebitcoin-next-roll-prediction/</link>
+      <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/malware-freebitcoin-next-roll-prediction/</guid>
+      <description>Malware obtained from any.run. It&amp;rsquo;s a bitcoin scam executable.
+   Property Value     MD5 afb30fed336e9b1e5e8ea5d941691b2a   SHA1 afeb330ea75da11608bc4f32d3490ed38cfd4c11   SHA256 16b4664969ce27b9914dc9d41b5baa16a341e00f442527efffd478a73a014fa1    2 EXEs dropped    Running procmon when running the malware shows that 2 possibly interesting executables are created: C:\Users\IEUser\AppData\Roaming\Microsoft\gons.exe and C:\Users\IEUser\AppData\Roaming\Microsoft\temp5789e.exe. Both of these dropped executables are .NET assemblies, so they should be trivial to reverse.
+gons.exe    Opening gons in dnSpy shows that this executable is responsible for the GUI, and I didn&amp;rsquo;t notice any malicious behaviour initially.</description>
+    </item>
+    
+    <item>
+      <title>Cracking Marquire&#39;s CrackMe_V3_Marquire</title>
+      <link>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/crackmes-marquier-crackme-v3-marquire/</guid>
+      <description>Let&amp;rsquo;s start off the crackmes series with a basic one: Marquire&amp;rsquo;s CrackMe_V3_Marquire .
+   Property Value     Language C/C++   Platform Windows   Difficulty 1.3   Quality 4.3   Arch x86    Initial run    It&amp;rsquo;s very standard, it just asks for the key and tells us if it&amp;rsquo;s right or wrong.
+Initial analysis    It&amp;rsquo;s quite clear what&amp;rsquo;s going on.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>russian on Brian Stadnicki</title><link>https://brianstadnicki.github.io/tags/russian/</link><description>Recent content in russian on Brian Stadnicki</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/russian/index.xml" rel="self" type="application/rss+xml"/><item><title>Analysis of vzlom_vk (Failed)</title><link>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</link><pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</guid><description>Malware obtained from any.run. It&amp;rsquo;s an unknown executable which unpacks itself, fails to run update.exe and prints out some russian.
-Property Value MD5 18b065e37c55a00d7a023f5cef02bde4 SHA1 fb6e6596c617f932cd9c7740b29ed6f5dda8a88c SHA256 bc4896abbf0726df8b9ef9134d584bbe1b649f59e453bbc327f8cd5b5b5a0651 File Type Portable Executable 32 File Info Microsoft Visual C++ 8 First run When run, it prints out the following text:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>russian on Brian Stadnicki</title>
+    <link>https://brianstadnicki.github.io/tags/russian/</link>
+    <description>Recent content in russian on Brian Stadnicki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/tags/russian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis of vzlom_vk (Failed)</title>
+      <link>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/posts/malware-vzlom-vk/</guid>
+      <description>Malware obtained from any.run. It&amp;rsquo;s an unknown executable which unpacks itself, fails to run update.exe and prints out some russian.
+   Property Value     MD5 18b065e37c55a00d7a023f5cef02bde4   SHA1 fb6e6596c617f932cd9c7740b29ed6f5dda8a88c   SHA256 bc4896abbf0726df8b9ef9134d584bbe1b649f59e453bbc327f8cd5b5b5a0651   File Type Portable Executable 32   File Info Microsoft Visual C++ 8    First run    When run, it prints out the following text:</description>
+    </item>
+    
+  </channel>
+</rss>

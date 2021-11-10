@@ -1,142 +1,210 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
-<meta name=author content="Brian Stadnicki">
-<meta name=description content="An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
+
+    
+
+    <meta name="author" content="Brian Stadnicki">
+    <meta name="description" content="An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.
 Overview    It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Failed to modify a data converter">
-<meta name=twitter:description content="An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.
-Overview    It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested.">
-<meta property="og:title" content="Failed to modify a data converter">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Failed to modify a data converter"/>
+<meta name="twitter:description" content="An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.
+Overview    It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested."/>
+
+    <meta property="og:title" content="Failed to modify a data converter" />
 <meta property="og:description" content="An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.
-Overview    It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-10-26T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-10-26T00:00:00+00:00">
-<title>
-Failed to modify a data converter · Brian Stadnicki
+Overview    It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-26T00:00:00+00:00" />
+
+
+
+    <title>
+  Failed to modify a data converter · Brian Stadnicki
 </title>
-<link rel=canonical href=https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css integrity="sha256-cIaG+KuBdukdRPy+SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.89.2">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
+
+    
+      <link rel="canonical" href="https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css" integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.89.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto"
+        onload=""
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
 </div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Brian Stadnicki
-</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/quips/>Quips</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact me</a>
-</li>
-</ul>
-</section>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Brian Stadnicki
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/quips/">Quips</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
 </nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/>
-Failed to modify a data converter
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-10-26T00:00:00Z>
-26 October, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-4-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/fiverr/>fiverr</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/reverse-engineering/>reverse engineering</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/.net/>.NET</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/failures/>failures</a>
-</span></div>
-</div>
-</header>
-<div>
-<p>An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.</p>
-<h2 id=overview>
-Overview
-<a class=heading-link href=#overview>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://brianstadnicki.github.io/posts/fiverr-data-converter-modification/">
+              Failed to modify a data converter
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-10-26T00:00:00Z'>
+                26 October, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/fiverr/">fiverr</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/reverse-engineering/">reverse engineering</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/.net/">.NET</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/failures/">failures</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>An interesting Fiverr project I got recently is modifying the EXFO Toolbox data converter to allow excel files. This toolbox is used for fibre optic measurements. The client wants to be able to change a few values in the measurements which can&rsquo;t be done using the tool.</p>
+<h2 id="overview">
+  Overview
+  <a class="heading-link" href="#overview">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
-<p><img src=/posts/fiverr-data-converter-modification/data-converter-window.png alt="Data Converter window"></p>
+<p><img src="/posts/fiverr-data-converter-modification/data-converter-window.png" alt="Data Converter window"></p>
 <p>It&rsquo;s quite a simple part of the program, just select the 2 files to merge and tada. Issue is, it merges OLTS/OLTS2 files, not the excel file requested.</p>
-<h2 id=sanity-check>
-Sanity check
-<a class=heading-link href=#sanity-check>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+<h2 id="sanity-check">
+  Sanity check
+  <a class="heading-link" href="#sanity-check">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
 <p>Let&rsquo;s make sure this program is easily modifiable first of all.</p>
-<p><img src=/posts/fiverr-data-converter-modification/cff-explorer.png alt="CFF Explorer shows it to be a .NET app"></p>
+<p><img src="/posts/fiverr-data-converter-modification/cff-explorer.png" alt="CFF Explorer shows it to be a .NET app"></p>
 <p>Very good, it&rsquo;s a .NET application, which is easily modifiable via dnSpy. To modify a native application in this way would be near impossible.</p>
-<h2 id=allowing-selecting-excel-files>
-Allowing selecting excel files
-<a class=heading-link href=#allowing-selecting-excel-files>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+<h2 id="allowing-selecting-excel-files">
+  Allowing selecting excel files
+  <a class="heading-link" href="#allowing-selecting-excel-files">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
 <p>First of all, let&rsquo;s allow a .xlsx file be selected.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>// Metrino.Kernos.IO.DataConverter.MainWindow selectMergeSourceFile
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// Metrino.Kernos.IO.DataConverter.MainWindow selectMergeSourceFile
 string filter = string.Concat(new string[]
 			{
 				StringTable.GetString(&#34;FOT930ConverterType.OLTS.Text&#34;),
@@ -153,12 +221,12 @@ string filter = string.Concat(new string[]
 			});
 this.openFileDialogMerge.Filter = filter;
 </code></pre></div><p>.NET decompiles and compiles very nicely, so in dnSpy we can simply edit the code and compile and tada. To allow excel files, I simply add</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&#34;|Excel (*.xlsx)|*.xlsx&#34;
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&#34;|Excel (*.xlsx)|*.xlsx&#34;
 </code></pre></div><p>to the end of that string.</p>
 <p>Next, we need to deal with warning preventing us from opening files of different types.</p>
-<p><img src=/posts/fiverr-data-converter-modification/warning-different-format.png alt="Warning showing that files are different formats"></p>
+<p><img src="/posts/fiverr-data-converter-modification/warning-different-format.png" alt="Warning showing that files are different formats"></p>
 <p>Here is the code responsible for that:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
 
 string text = (string)this.textBoxMergeSource1.Tag;
 string text2 = (string)this.textBoxMergeSource2.Tag;
@@ -167,19 +235,19 @@ if (this.oltsConversionType != FOT930ConverterType.OLTS || !(Path.GetExtension(t
 	{
 </code></pre></div><p>I&rsquo;ll simply put a check before <code>!(Path.GetExtension(text).ToLower() != Path.GetExtension(text2).ToLower()</code> for the second file ending with <code>.xlsx</code>.</p>
 <p>The resulting boolean expression is:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>this.oltsConversionType != FOT930ConverterType.OLTS || Path.GetExtension(text2).ToLower() == &#34;.xlsx&#34; || !(Path.GetExtension(text).ToLower() != Path.GetExtension(text2).ToLower()) || MessageBox.Show(this, StringTable.GetString(&#34;message.MergingOltsWithOlts2Files&#34;), StringTable.GetString(&#34;message.Title.Warning&#34;), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) != DialogResult.No
-</code></pre></div><h2 id=custom-logic-placement>
-Custom logic placement
-<a class=heading-link href=#custom-logic-placement>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">this.oltsConversionType != FOT930ConverterType.OLTS || Path.GetExtension(text2).ToLower() == &#34;.xlsx&#34; || !(Path.GetExtension(text).ToLower() != Path.GetExtension(text2).ToLower()) || MessageBox.Show(this, StringTable.GetString(&#34;message.MergingOltsWithOlts2Files&#34;), StringTable.GetString(&#34;message.Title.Warning&#34;), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1) != DialogResult.No
+</code></pre></div><h2 id="custom-logic-placement">
+  Custom logic placement
+  <a class="heading-link" href="#custom-logic-placement">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
 <p>After it&rsquo;s done the format checks, the program goes on to ask where the file is to be saved to, and finally goes to the real meat: the combining. We&rsquo;ll bypass the pre-existing combination code when the 2nd file is an excel file.</p>
 <p>Just out of interesting, I ran it and unsurprisingly there was an error.</p>
-<p><img src=/posts/fiverr-data-converter-modification/warning-different-format.png alt="Pressing merge causes an error of &ldquo;An event was unable to invoke any of the subscribers&rdquo;"></p>
+<p><img src="/posts/fiverr-data-converter-modification/warning-different-format.png" alt="Pressing merge causes an error of &ldquo;An event was unable to invoke any of the subscribers&rdquo;"></p>
 <p>I have no idea what that error means, and I&rsquo;m not interested in it, so let&rsquo;s continue with adding our custom logic.</p>
 <p>First of all, we need to place our custom logic in-between where we are prompted where to save the file and where the merging takes place.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
 
 if (this.saveFileDialogMerge.ShowDialog() == DialogResult.OK)
 	{
@@ -197,14 +265,14 @@ if (this.saveFileDialogMerge.ShowDialog() == DialogResult.OK)
 			erffbypass = new ERFFBypassClass();
 			erffbypass.ReadData(text, &#34;OLTS3930&#34;, cable, false);
 			erffbypass.ReadData(text2, &#34;OLTS3930&#34;, cable2, false);
-</code></pre></div><h2 id=sanity-check-read--write>
-Sanity check: read & write
-<a class=heading-link href=#sanity-check-read--write>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+</code></pre></div><h2 id="sanity-check-read--write">
+  Sanity check: read &amp; write
+  <a class="heading-link" href="#sanity-check-read--write">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
 <p>Before I go trying to figure out how to use the excel file, let&rsquo;s check if I can just read and write the first file without issues.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// Metrino.Kernos.IO.DataConverter.MainWindow buttonMerge_Click
 
 ICable cable = null;
 ICable cable2 = null;
@@ -247,39 +315,95 @@ else
 		this.Cursor = Cursors.WaitCursor;
 		cable = new CableClass();
 </code></pre></div><p>Let&rsquo;s make sure that the output is correct.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sha256sum merged.olts
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sha256sum merged.olts
 	bbf132f37857dbe44faafc607a764a78ae90749127edc057827a11f9a56bfac9  merged.olts
 $ sha256sum samples/EXFO_FW_H1017_33TO36.olts
 	4fae0b842e074f3ff5d3ac668b1791819fad8317a0c2c01542b2711d44eba820  samples/EXFO_FW_H1017_33TO36.olts
 </code></pre></div><p>The output file does have a different hash.</p>
-<p><img src=/posts/fiverr-data-converter-modification/output-has-same-data.png alt="The output file has the same data"></p>
+<p><img src="/posts/fiverr-data-converter-modification/output-has-same-data.png" alt="The output file has the same data"></p>
 <p>However, when opened in the &ldquo;Optical Report Viewer&rdquo; they have the same data, so it&rsquo;s fine.</p>
-<h2 id=failure>
-Failure
-<a class=heading-link href=#failure>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
+<h2 id="failure">
+  Failure
+  <a class="heading-link" href="#failure">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
 </h2>
 <p>I couldn&rsquo;t figure out where the measurements are stored in the object at runtime. When debugging the writing of the file, it just skipped over it. Turns out that the method was marked with <code>[MethodImpl(MethodImplOptions.InternalCall)]</code>, so in reality it was a call to a native binary. However, there&rsquo;s very few options to figure out where this call goes, and I&rsquo;ve spent too long on this order to make sense to figure it out.</p>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<p>Education through a 1000 mistakes</p>
-©
-2021
-Brian Stadnicki
-·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
-<script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
-</body>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "brianstadnicki/brianstadnicki.github.io"
+    issue-term="pathname"
+    label=""
+    theme="preferred-color-scheme"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Education through a 1000 mistakes</p>
+      
+      
+        ©
+        
+        2021
+         Brian Stadnicki 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
+
+
+
+    
+
+    
+  </body>
+
 </html>

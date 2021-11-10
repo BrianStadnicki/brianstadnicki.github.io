@@ -1,1 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Brian Stadnicki</title><link>https://brianstadnicki.github.io/categories/</link><description>Recent content in Categories on Brian Stadnicki</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>malware</title><link>https://brianstadnicki.github.io/categories/malware/</link><pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/malware/</guid><description/></item><item><title>crackmes</title><link>https://brianstadnicki.github.io/categories/crackmes/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/crackmes/</guid><description/></item><item><title>malware analysis</title><link>https://brianstadnicki.github.io/categories/malware-analysis/</link><pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/malware-analysis/</guid><description/></item><item><title>fiverr</title><link>https://brianstadnicki.github.io/categories/fiverr/</link><pubDate>Tue, 26 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/fiverr/</guid><description/></item><item><title>startups</title><link>https://brianstadnicki.github.io/categories/startups/</link><pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/startups/</guid><description/></item><item><title>rust</title><link>https://brianstadnicki.github.io/categories/rust/</link><pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate><guid>https://brianstadnicki.github.io/categories/rust/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Brian Stadnicki</title>
+    <link>https://brianstadnicki.github.io/categories/</link>
+    <description>Recent content in Categories on Brian Stadnicki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://brianstadnicki.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>malware</title>
+      <link>https://brianstadnicki.github.io/categories/malware/</link>
+      <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/malware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crackmes</title>
+      <link>https://brianstadnicki.github.io/categories/crackmes/</link>
+      <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/crackmes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>malware analysis</title>
+      <link>https://brianstadnicki.github.io/categories/malware-analysis/</link>
+      <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/malware-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fiverr</title>
+      <link>https://brianstadnicki.github.io/categories/fiverr/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/fiverr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>startups</title>
+      <link>https://brianstadnicki.github.io/categories/startups/</link>
+      <pubDate>Fri, 08 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/startups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rust</title>
+      <link>https://brianstadnicki.github.io/categories/rust/</link>
+      <pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://brianstadnicki.github.io/categories/rust/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
