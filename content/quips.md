@@ -47,3 +47,8 @@ A random collection of quips I've picked up, sorry about no attributions.
  * I don’t know how to count that low
  * As you get older, you recognise McDonalds not as a restaurant, but as a good toilet
  * Crushing people under an iron fist is our job, not yours Google
+ * We can't get any more of our current CPU for 730 days
+ * spaces in paths are scary
+ * Excel is the world's IDE
+ * apps are exact replicas of the brain process of the owner that made them without a single structured thought in sight
+ * My shot-gun second brain: A look back
