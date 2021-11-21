@@ -52,3 +52,6 @@ A random collection of quips I've picked up, sorry about no attributions.
  * Excel is the world's IDE
  * apps are exact replicas of the brain process of the owner that made them without a single structured thought in sight
  * My shot-gun second brain: A look back
+ * Never fight a land war in Asia
+ * Tell them what you're going to tell them, then tell them, then tell them what you told them
+ * NPL (Nerdy Project Leaders)
