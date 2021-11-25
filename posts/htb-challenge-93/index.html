@@ -243,7 +243,7 @@ rundll32.exe
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h1>
-<p>Statically analyzing this doesn&rsquo;t seem to give any useful information, and given its size of 1 KB and just calls to <code>ntdll.dll</code>, it&rsquo;s likely that this is just another loader that tries to hide in <code>rundll32.exe</code>.</p>
+<p>Statically analyzing this doesn&rsquo;t seem to give any useful information, and given its size of 1 KB and just calls to <code>ntdll.dll</code>, it&rsquo;s likely that this is just another loader that tries to hide in <code>rundll32.exe</code>. It&rsquo;s quite obfuscated and doesn&rsquo;t seem to have any meaningful structure, so I&rsquo;ll try to gloss over the details of how it works, life is too short for that.</p>
 <p>Monitoring it using API Monitor, it appears that it loads some windows DLLs, calls some socket methods, and then has an error and calls windows error handling methods. I&rsquo;ve spotted two interesting calls to <code>RtlUnicodeToUTF8N</code>, inbetween calls getting winsock registry keys and the error handling.</p>
 <table>
 <thead>
