@@ -101,7 +101,7 @@ with open ("out.bin", "wb") as out:
 
 # rundll32.exe
 
-Statically analyzing this doesn't seem to give any useful information, and given its size of 1 KB and just calls to `ntdll.dll`, it's likely that this is just another loader that tries to hide in `rundll32.exe`.
+Statically analyzing this doesn't seem to give any useful information, and given its size of 1 KB and just calls to `ntdll.dll`, it's likely that this is just another loader that tries to hide in `rundll32.exe`. It's quite obfuscated and doesn't seem to have any meaningful structure, so I'll try to gloss over the details of how it works, life is too short for that.
 
 Monitoring it using API Monitor, it appears that it loads some windows DLLs, calls some socket methods, and then has an error and calls windows error handling methods. I've spotted two interesting calls to `RtlUnicodeToUTF8N`, inbetween calls getting winsock registry keys and the error handling.
 
