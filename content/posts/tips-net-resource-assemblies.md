@@ -46,7 +46,7 @@ Extracting the embedded executables statically is easy, simply right click on th
 
 However, this method will not yield us the name for the later insert step.
 
-Therefore, we need the assemblies to be dumped at runtime, as that is the name which is important. Start the target program and use (ExtremeDumper)[https://github.com/wwh1004/ExtremeDumper] for this. Simply run it, right click on the target and select `Dump Selected Process`. This will yield all the assemblies with correct names.
+Therefore, we need the assemblies to be dumped at runtime, as that is the name which is important. Start the target program and use [ExtremeDumper](https://github.com/wwh1004/ExtremeDumper) for this. Simply run it, right click on the target and select `Dump Selected Process`. This will yield all the assemblies with correct names.
 
 # Modify
 
