@@ -140,6 +140,11 @@ weight = 2
 url = "posts/"
 
 [[languages.en.menu.main]]
+name = "Resume"
+weight = 3
+url = "resume.pdf"
+
+[[languages.en.menu.main]]
 name = "Contact me"
 weight = 4
 url = "contact/"
