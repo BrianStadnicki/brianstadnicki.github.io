@@ -2,188 +2,138 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
-<meta name=author content="Brian Stadnicki">
-<meta name=description content="Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.
-To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.
-Basic factorial    To write a self-modifying factorial program, we first need a normal factorial program.
-factorial: push ebp mov ebx, eax factorial_start: sub ebx, 1 cmp ebx, 0 je factorial_end mul ebx jmp factorial_start factorial_end: pop ebp ret This is quite simple, if it needs explanation then this isn&rsquo;t for you.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Writing a self-modifying x86 factorial program">
-<meta name=twitter:description content="Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.
-To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.
-Basic factorial    To write a self-modifying factorial program, we first need a normal factorial program.
-factorial: push ebp mov ebx, eax factorial_start: sub ebx, 1 cmp ebx, 0 je factorial_end mul ebx jmp factorial_start factorial_end: pop ebp ret This is quite simple, if it needs explanation then this isn&rsquo;t for you.">
-<meta property="og:title" content="Writing a self-modifying x86 factorial program">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Writing a self-modifying x86 factorial program - Brian Stadnicki</title><meta name=Description content><meta property="og:title" content="Writing a self-modifying x86 factorial program">
 <meta property="og:description" content="Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.
 To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.
-Basic factorial    To write a self-modifying factorial program, we first need a normal factorial program.
+Basic factorial To write a self-modifying factorial program, we first need a normal factorial program.
 factorial: push ebp mov ebx, eax factorial_start: sub ebx, 1 cmp ebx, 0 je factorial_end mul ebx jmp factorial_start factorial_end: pop ebp ret This is quite simple, if it needs explanation then this isn&rsquo;t for you.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-12-15T00:00:00+00:00">
 <meta property="article:modified_time" content="2021-12-15T00:00:00+00:00">
-<title>
-Writing a self-modifying x86 factorial program · Brian Stadnicki
-</title>
-<link rel=canonical href=https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css integrity="sha256-cIaG+KuBdukdRPy+SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-</head>
-<body class="preload-transitions colorscheme-light">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Brian Stadnicki
-</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/>
-Writing a self-modifying x86 factorial program
-</a>
-</h1>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Writing a self-modifying x86 factorial program">
+<meta name=twitter:description content="Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.
+To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.
+Basic factorial To write a self-modifying factorial program, we first need a normal factorial program.
+factorial: push ebp mov ebx, eax factorial_start: sub ebx, 1 cmp ebx, 0 je factorial_end mul ebx jmp factorial_start factorial_end: pop ebp ret This is quite simple, if it needs explanation then this isn&rsquo;t for you.">
+<meta name=application-name content="Brian Stadnicki">
+<meta name=apple-mobile-web-app-title content="Brian Stadnicki"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/><link rel=prev href=https://brianstadnicki.github.io/posts/ctf-metactf-cybergames-2021-step-into-net/><link rel=next href=https://brianstadnicki.github.io/posts/malware-face-brain-credential-stealer/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Writing a self-modifying x86 factorial program","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/asm-self-modifying-factorial\/"},"genre":"posts","keywords":"x86, self-modifying","wordcount":616,"url":"https:\/\/brianstadnicki.github.io\/posts\/asm-self-modifying-factorial\/","datePublished":"2021-12-15T00:00:00+00:00","dateModified":"2021-12-15T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head>
+<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
 </div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-12-15T00:00:00Z>
-15 December, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-3-minute read
-</span>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> Posts </a><a class=menu-item href=/resume.pdf> Resume </a><a class=menu-item href=/tags/> Tags </a><a class=menu-item href=/categories/> Categories </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
 </div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/asm/>asm</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/x86/>x86</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/self-modifying/>self-modifying</a>
-</span></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
 </div>
 </header>
-<div>
-<p>Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.</p>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class="toc-content always-active" id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Writing a self-modifying x86 factorial program</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/asm/><i class="far fa-folder fa-fw"></i>asm</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-12-15>2021-12-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;616 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#basic-factorial>Basic factorial</a></li>
+<li><a href=#self-modifying-factorial>Self-modifying factorial</a>
+<ul>
+<li><a href=#technical-issues>Technical issues</a></li>
+<li><a href=#starting-value>Starting value</a></li>
+<li><a href=#multiplier>Multiplier</a>
+<ul>
+<li><a href=#multiplier-init>Multiplier init</a></li>
+<li><a href=#multiplier-decrement>Multiplier decrement</a></li>
+</ul>
+</li>
+<li><a href=#result>Result</a></li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.</p>
 <p>To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.</p>
-<h1 id=basic-factorial>
-Basic factorial
-<a class=heading-link href=#basic-factorial>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
+<h2 id=basic-factorial>Basic factorial</h2>
 <p>To write a self-modifying factorial program, we first need a normal factorial program.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>factorial:
-    push ebp
-    mov ebx, eax
-factorial_start:
-    sub ebx, 1
-    cmp ebx, 0
-    je factorial_end
-    mul ebx
-    jmp factorial_start
-factorial_end:
-    pop ebp
-    ret
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nl>factorial:</span>
+    <span class=nf>push</span> <span class=no>ebp</span>
+    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=no>eax</span>
+<span class=nl>factorial_start:</span>
+    <span class=nf>sub</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>1</span>
+    <span class=nf>cmp</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
+    <span class=nf>je</span> <span class=no>factorial_end</span>
+    <span class=nf>mul</span> <span class=no>ebx</span>
+    <span class=nf>jmp</span> <span class=no>factorial_start</span>
+<span class=nl>factorial_end:</span>
+    <span class=nf>pop</span> <span class=no>ebp</span>
+    <span class=nf>ret</span>
 </code></pre></div><p>This is quite simple, if it needs explanation then this isn&rsquo;t for you.</p>
-<h1 id=self-modifying-factorial>
-Self-modifying factorial
-<a class=heading-link href=#self-modifying-factorial>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
+<h2 id=self-modifying-factorial>Self-modifying factorial</h2>
 <p>In the factorial algorithm, there are 2 places where it makes somewhat sense to be modifying in values during runtime: the initial starting value, and the value multiplied by.</p>
-<h2 id=technical-issues>
-Technical issues
-<a class=heading-link href=#technical-issues>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
+<h3 id=technical-issues>Technical issues</h3>
 <p>First of all, self-modifying programs are a bit special. By default, <code>nasm</code> will assemble the program into something which can&rsquo;t self-modify, because the <code>.text</code> section is marked as not writable for security reasons. <code>objcopy</code> and a custom program need to be used to change the flags on the <code>.text</code> section to allow for it to be written to during runtime.</p>
-<p>You can see my script for building these programs <a href=https://github.com/BrianStadnicki/self-modifying-assembly-examples/blob/master/bin/execute.sh>here</a>.</p>
-<h2 id=starting-value>
-Starting value
-<a class=heading-link href=#starting-value>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
+<p>You can see my script for building these programs <a href=https://github.com/BrianStadnicki/self-modifying-assembly-examples/blob/master/bin/execute.sh target=_blank rel="noopener noreffer">here</a>.</p>
+<h3 id=starting-value>Starting value</h3>
 <p>In the original code, the starting number is passed in through the <code>eax</code> register.</p>
 <p>To use self-modifying code for this, first there needs to be an empty <code>mov</code> into <code>eax</code> at the start of the function.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>_start:
-    mov dword [factorial+2], 0x5
-    call factorial
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nl>_start:</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial</span><span class=err>+</span><span class=mi>2</span><span class=p>],</span> <span class=mi>0x5</span>
+    <span class=nf>call</span> <span class=no>factorial</span>
 
-factorial:
-    push ebp
-    mov eax, 0
+<span class=nl>factorial:</span>
+    <span class=nf>push</span> <span class=no>ebp</span>
+    <span class=nf>mov</span> <span class=no>eax</span><span class=p>,</span> <span class=mi>0</span>
 </code></pre></div><p>As you can see, to pass in the starting value, the program modifies the <code>mov eax, 0</code> instruction. The instruction&rsquo;s <code>0</code> value is 2 bytes offsetted from the start of the <code>factorial</code> method.</p>
-<h2 id=multiplier>
-Multiplier
-<a class=heading-link href=#multiplier>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>factorial_start:
-    ; multiply
-    mov ebx, 0
-    mul ebx
+<h3 id=multiplier>Multiplier</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nl>factorial_start:</span>
+    <span class=c>; multiply
+</span><span class=c></span>    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
+    <span class=nf>mul</span> <span class=no>ebx</span>
 </code></pre></div><p>Here is the stub used for the multiplication. Next is needed the logic for setting up the <code>mov ebx, 0</code>, decrementing it, and exiting the loop.</p>
-<h3 id=multiplier-init>
-Multiplier init
-<a class=heading-link href=#multiplier-init>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
+<h4 id=multiplier-init>Multiplier init</h4>
 <p>To setup the multiplier, take <code>ebx</code>, which stores the first value of the multiplier, and copy it into <code>mov eax, 0</code> at the start of the <code>factorial_start</code> method.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>factorial:
-    ...
-    mov dword [factorial_start+1], ebx ; init decrementer
-</code></pre></div><h3 id=multiplier-decrement>
-Multiplier decrement
-<a class=heading-link href=#multiplier-decrement>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nl>factorial:</span>
+    <span class=na>...</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>],</span> <span class=no>ebx</span> <span class=c>; init decrementer
+</span></code></pre></div><h4 id=multiplier-decrement>Multiplier decrement</h4>
 <p>In a standard program, the logic is as follows:</p>
 <ul>
 <li>Decrement the multiplier</li>
@@ -192,97 +142,101 @@ Multiplier decrement
 </ul>
 <p>The only part of this which changes in this self-modfying program is decrementing the multiplier.</p>
 <p>To decrement the multipler, it needs to fetch what it is currently, decrement it, and copy it back in.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>factorial_start:
-    ...
-    ; decrement
-    mov ebx, dword [factorial_start+1]
-    sub ebx, 1
-    mov dword [factorial_start+1], ebx
-</code></pre></div><h2 id=result>
-Result
-<a class=heading-link href=#result>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nl>factorial_start:</span>
+    <span class=na>...</span>
+    <span class=c>; decrement
+</span><span class=c></span>    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>]</span>
+    <span class=nf>sub</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>1</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>],</span> <span class=no>ebx</span>
+</code></pre></div><h3 id=result>Result</h3>
 <p>Putting it all together, here&rsquo;s what it ends up as:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>extern printf
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=nf>extern</span> <span class=no>printf</span>
 
-section .data
-    format:    db &#34;num: %d&#34;,10,0
+<span class=nf>section</span> <span class=no>.data</span>
+    <span class=nl>format:</span>    <span class=nf>db</span> <span class=err>&#34;</span><span class=no>num</span><span class=p>:</span> <span class=nv>%d</span><span class=err>&#34;</span><span class=p>,</span><span class=mi>10</span><span class=p>,</span><span class=mi>0</span>
 
-section .text
-	global _start
+<span class=nf>section</span> <span class=no>.text</span>
+	<span class=nf>global</span> <span class=no>_start</span>
 
-_start:
-    mov dword [factorial+2], 0x5 ; start number
-    
-    call factorial
-    ; print result
-    push eax
-    push format
-    call printf
-    ; exit
-    mov eax, 1
-	mov ebx, 0
-    int 80h
+<span class=nl>_start:</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial</span><span class=err>+</span><span class=mi>2</span><span class=p>],</span> <span class=mi>0x5</span> <span class=c>; start number
+</span><span class=c></span>    
+    <span class=no>call</span> <span class=no>factorial</span>
+    <span class=c>; print result
+</span><span class=c></span>    <span class=nf>push</span> <span class=no>eax</span>
+    <span class=nf>push</span> <span class=no>format</span>
+    <span class=nf>call</span> <span class=no>printf</span>
+    <span class=c>; exit
+</span><span class=c></span>    <span class=nf>mov</span> <span class=no>eax</span><span class=p>,</span> <span class=mi>1</span>
+	<span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
+    <span class=nf>int</span> <span class=mi>80</span><span class=no>h</span>
 
-factorial:
-    push ebp
-    mov eax, 0
+<span class=nl>factorial:</span>
+    <span class=nf>push</span> <span class=no>ebp</span>
+    <span class=nf>mov</span> <span class=no>eax</span><span class=p>,</span> <span class=mi>0</span>
 
-    mov ebx, eax
-    sub ebx, 1
-    mov dword [factorial_start+1], ebx ; init decrementer
-    mov ebx, 0
+    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=no>eax</span>
+    <span class=nf>sub</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>1</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>],</span> <span class=no>ebx</span> <span class=c>; init decrementer
+</span><span class=c></span>    <span class=no>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
 
-factorial_start:
-    ; multiply
-    mov ebx, 0
-    mul ebx
+<span class=nl>factorial_start:</span>
+    <span class=c>; multiply
+</span><span class=c></span>    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
+    <span class=nf>mul</span> <span class=no>ebx</span>
 
-    ; decrement
-    mov ebx, dword [factorial_start+1]
-    sub ebx, 1
-    mov dword [factorial_start+1], ebx
-    ; exit if at 0
-    ; could exit at 1, but then it doesn&#39;t handle 0x2
-    cmp ebx, 0
-    je factorial_end
-    ; loop back
-    jmp factorial_start
+    <span class=c>; decrement
+</span><span class=c></span>    <span class=nf>mov</span> <span class=no>ebx</span><span class=p>,</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>]</span>
+    <span class=nf>sub</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>1</span>
+    <span class=nf>mov</span> <span class=no>dword</span> <span class=p>[</span><span class=no>factorial_start</span><span class=err>+</span><span class=mi>1</span><span class=p>],</span> <span class=no>ebx</span>
+    <span class=c>; exit if at 0
+</span><span class=c></span>    <span class=c>; could exit at 1, but then it doesn&#39;t handle 0x2
+</span><span class=c></span>    <span class=nf>cmp</span> <span class=no>ebx</span><span class=p>,</span> <span class=mi>0</span>
+    <span class=nf>je</span> <span class=no>factorial_end</span>
+    <span class=c>; loop back
+</span><span class=c></span>    <span class=nf>jmp</span> <span class=no>factorial_start</span>
 
-factorial_end:
-    pop ebp
-    ret
-</code></pre></div><h1 id=conclusion>
-Conclusion
-<a class=heading-link href=#conclusion>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
+<span class=nl>factorial_end:</span>
+    <span class=nf>pop</span> <span class=no>ebp</span>
+    <span class=nf>ret</span>
+</code></pre></div><h2 id=conclusion>Conclusion</h2>
 <p>Self-modifying programs are interesting. Their code looks a bit different, a bit messy and with empty values, but they&rsquo;re definitely interesting to think through the logic for.</p>
 <p>There&rsquo;s several applications for these types of programs, mainly around obfuscation, such as license protection and malware. I&rsquo;m thinking of writing an interesting packer to utilize this, or at least a fun crackme.</p>
-<p>If you wish to see more examples of self modifying x86 programs, you can view them on <a href=https://github.com/BrianStadnicki/self-modifying-assembly-examples>my git repo</a>.</p>
+<p>If you wish to see more examples of self modifying x86 programs, you can view them on <a href=https://github.com/BrianStadnicki/self-modifying-assembly-examples target=_blank rel="noopener noreffer">my git repo</a>.</p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on 2021-12-15</span>
 </div>
-<footer>
-<script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/self-modifying/>self-modifying</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
 </section>
 </div>
-<footer class=footer>
-<section class=container>
-<p>Education through a 1000 mistakes</p>
-©
-2021 -
-2022
-Brian Stadnicki
-·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
-<script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
-</body>
+<div class=post-nav><a href=/posts/ctf-metactf-cybergames-2021-step-into-net/ class=prev rel=prev title=".NET dmp forensics challenge"><i class="fas fa-angle-left fa-fw"></i>.NET dmp forensics challenge</a>
+<a href=/posts/malware-face-brain-credential-stealer/ class=next rel=next title="Face Brain: Password stealer with vm detection">Face Brain: Password stealer with vm detection<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body>
 </html>

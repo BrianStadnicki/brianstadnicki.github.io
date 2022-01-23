@@ -2,153 +2,137 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' utteranc.es; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' utteranc.es static.cloudflareinsights.com; prefetch-src 'self'; connect-src 'self' cloudflareinsights.com;">
-<meta name=author content="Brian Stadnicki">
-<meta name=description content="There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).
-Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&rsquo;m trying to learn.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Rust Reversing 1: Hello, world!">
-<meta name=twitter:description content="There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).
-Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&rsquo;m trying to learn.">
-<meta property="og:title" content="Rust Reversing 1: Hello, world!">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Rust Reversing 1: Hello, world! - Brian Stadnicki</title><meta name=Description content><meta property="og:title" content="Rust Reversing 1: Hello, world!">
 <meta property="og:description" content="There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).
 Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&rsquo;m trying to learn.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://brianstadnicki.github.io/posts/rust-reversing-01/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-10-03T00:00:00+00:00">
 <meta property="article:modified_time" content="2021-10-03T00:00:00+00:00">
-<title>
-Rust Reversing 1: Hello, world! · Brian Stadnicki
-</title>
-<link rel=canonical href=https://brianstadnicki.github.io/posts/rust-reversing-01/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css integrity="sha256-cIaG+KuBdukdRPy+SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.0">
-</head>
-<body class="preload-transitions colorscheme-light">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Brian Stadnicki
-</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://brianstadnicki.github.io/posts/rust-reversing-01/>
-Rust Reversing 1: Hello, world!
-</a>
-</h1>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Rust Reversing 1: Hello, world!">
+<meta name=twitter:description content="There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).
+Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&rsquo;m trying to learn.">
+<meta name=application-name content="Brian Stadnicki">
+<meta name=apple-mobile-web-app-title content="Brian Stadnicki"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/rust-reversing-01/><link rel=next href=https://brianstadnicki.github.io/posts/tradesmen-bookings-begin/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Rust Reversing 1: Hello, world!","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/rust-reversing-01\/"},"genre":"posts","keywords":"reverse engineering, rust","wordcount":197,"url":"https:\/\/brianstadnicki.github.io\/posts\/rust-reversing-01\/","datePublished":"2021-10-03T00:00:00+00:00","dateModified":"2021-10-03T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head>
+<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
 </div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-10-03T00:00:00Z>
-3 October, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-One-minute read
-</span>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> Posts </a><a class=menu-item href=/resume.pdf> Resume </a><a class=menu-item href=/tags/> Tags </a><a class=menu-item href=/categories/> Categories </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
 </div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/rust/>rust</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/reverse-engineering/>reverse engineering</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/rust/>rust</a>
-</span></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
 </div>
 </header>
-<div>
-<p>There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).</p>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class="toc-content always-active" id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Rust Reversing 1: Hello, world!</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/rust/><i class="far fa-folder fa-fw"></i>rust</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-03>2021-10-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;197 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#first-beginnings>First beginnings</a>
+<ul>
+<li>
+<ul>
+<li><a href=#hello-world>Hello World!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>There&rsquo;s plenty of decompilers for most compiled languages, but what about rust? I couldn&rsquo;t find one, so let&rsquo;s try to understand what the resulting code looks like, in the hopes of creating a decompiler. Might help out somebody going against an odd malware author who&rsquo;s decided that rust makes sense (it doesn&rsquo;t).</p>
 <p>Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I&rsquo;m trying to learn.</p>
-<h1 id=first-beginnings>
-First beginnings
-<a class=heading-link href=#first-beginnings>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
-<h3 id=hello-world>
-Hello World!
-<a class=heading-link href=#hello-world>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
+<h2 id=first-beginnings>First beginnings</h2>
+<h4 id=hello-world>Hello World!</h4>
 <p>Let&rsquo;s begin with the standard hello world.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=font-weight:700>fn</span> main() {
-    println!(<span style=font-style:italic>&#34;Hello, world!&#34;</span>);
-}
-</code></pre></div><p>First of all, rust makes clear that most of the functions are std, alloc and core functions, making our job a bit easier.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=fm>println!</span><span class=p>(</span><span class=s>&#34;Hello, world!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></div><p>First of all, rust makes clear that most of the functions are std, alloc and core functions, making our job a bit easier.</p>
 <p>The program starts at _start, just sets up a little and then calls the main function.</p>
-<p><img src=/posts/rust-reversing-01/_start.png alt="_start disassembly"></p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/rust-reversing-01/_start.png data-srcset="/posts/rust-reversing-01/_start.png, /posts/rust-reversing-01/_start.png 1.5x, /posts/rust-reversing-01/_start.png 2x" data-sizes=auto alt=/posts/rust-reversing-01/_start.png title="_start disassembly"></p>
 <p>Here rust again sets up more of the stack, calls the actual main function, and then calls <code>std::rt::lang_start_internal</code>, which seems to provide panic stack unwinding.</p>
-<p><img src=/posts/rust-reversing-01/main.png alt="main disassembly"></p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/rust-reversing-01/main.png data-srcset="/posts/rust-reversing-01/main.png, /posts/rust-reversing-01/main.png 1.5x, /posts/rust-reversing-01/main.png 2x" data-sizes=auto alt=/posts/rust-reversing-01/main.png title="main disassembly"></p>
 <p>Finally, we get to <code>"Hello, world!\n"</code>. Load the string, load some arguments and then call <code>std::io::print</code>.</p>
-<p><img src=/posts/rust-reversing-01/hello_world::main.png alt="hello world main disassembly"></p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/rust-reversing-01/hello_world::main.png data-srcset="/posts/rust-reversing-01/hello_world::main.png, /posts/rust-reversing-01/hello_world::main.png 1.5x, /posts/rust-reversing-01/hello_world::main.png 2x" data-sizes=auto alt=/posts/rust-reversing-01/hello_world::main.png title="hello world main disassembly"></p>
 <p>Little side note, the Hex-Rays decompiler completely misses the <code>"Hello, world!\n"</code>. Rust is an obfuscator I guess.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span>void</span> hello_world::main::h223615043659651d()
-{
-  std::io::stdio::_print::hf2e9dc80124c4394();
-}
-</code></pre></div>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-C data-lang=C><span class=kt>void</span> <span class=n>hello_world</span><span class=o>::</span><span class=n>main</span><span class=o>::</span><span class=n>h223615043659651d</span><span class=p>()</span>
+<span class=p>{</span>
+  <span class=n>std</span><span class=o>::</span><span class=n>io</span><span class=o>::</span><span class=n>stdio</span><span class=o>::</span><span class=n>_print</span><span class=o>::</span><span class=n>hf2e9dc80124c4394</span><span class=p>();</span>
+<span class=p>}</span>
+</code></pre></div></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on 2021-10-03</span>
 </div>
-<footer>
-<script src=https://utteranc.es/client.js repo=brianstadnicki/brianstadnicki.github.io issue-term=pathname label theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/rust/>rust</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
 </section>
 </div>
-<footer class=footer>
-<section class=container>
-<p>Education through a 1000 mistakes</p>
-©
-2021 -
-2022
-Brian Stadnicki
-·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
-<script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script>
-</body>
+<div class=post-nav>
+<a href=/posts/tradesmen-bookings-begin/ class=next rel=next title="My startup: Tradesmen Bookings">My startup: Tradesmen Bookings<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body>
 </html>
