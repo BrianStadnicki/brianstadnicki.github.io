@@ -8,7 +8,7 @@ tags = [ "reverse engineering", "forensics", "wireshark", "windbg", "metactf", "
 
 This is a challenge from MetaCTF CyberGames 2021. It included .NET dump memory forensics, which doesn't look to be very common knowledge on how to do, so hopefully this writeup can help with that.
 
-# Step into the NET
+## Step into the NET
 
 For the grand finale, it's time to put all of your analysis skills together. You're going to face a little bit of Crypto & Reverse Engineering and a whole lot of Forensics.
 
@@ -16,9 +16,9 @@ We've taken the liberty of collecting a [packet capture](https://metaproblems.co
 
 In order give our management the clarity they need, we want to know *exactly* what actions the attackers took on this high value machine (note - this is a different memory dump/pcap from any previous problem). In order to do this, you're going to want to match the information in the pcap and extract critical data you need from the memory dump to put together a picture of what happened.
 
-# Solving
+## Solving
 
-## Packet analysis
+### Packet analysis
 
 First of all, let's look at the packet capture to see what we're dealing with, using wireshark.
 
@@ -42,7 +42,7 @@ Immediately one detail stands out: the entire conversation is 630kB. It's likely
 
 There's not too much useful information here, it's just the packet capture of something encrypted being downloaded.
 
-## Dump analysis
+### Dump analysis
 
 This is a windows dump file, so we'll use `WinDbg` to analyse it.
 
@@ -54,7 +54,7 @@ To analyse the .NET program, first install [netext](https://github.com/rodneyvia
 0:000> .load netext
 ```
 
-### Dumping code
+#### Dumping code
 
 First of all, we need to check out the running code. To do this, we need to dump it first.
 
@@ -77,25 +77,25 @@ Saved 'C:\Users\IEUser\Downloads\net\dump\OUZWwjnRdRpuqIqXtbtAdEDpAmRDA, Version
 
 As ever with anything .NET, load the files that aren't system files into dnSpy.
 
-#### EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll
+##### EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll
 
 This is just an empty dll.
 
-#### kxwieowc.bru.exe
+##### kxwieowc.bru.exe
 
 The executable has an entrypoint at `GruntStager.GruntStager.Main`. Googling this reveals that this is likely a [Convenant](https://github.com/cobbr/Covenant) Grunt, the implant that is deployed to targets.
 
 It appears to do a lot of work to download an assembly and load it using `Assembly.Load(aes2.CreateDecryptor()...`.
 
-#### if3vizgz.gue.dll
+##### if3vizgz.gue.dll
 
 This holds the [SharpSploit](https://github.com/cobbr/SharpSploit) library, specifically for [executing PowerShell code](https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Execution/Shell.cs).
 
-#### OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll
+##### OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll
 
 This is just an empty dll.
 
-#### q2foozwn.pi1.dll
+##### q2foozwn.pi1.dll
 
 First of all, this dll has an interesting attribute:
 
@@ -131,13 +131,13 @@ public static class Task
 
 No surprise that this part was protected, it's probably a task for the Grunt to take a screenshot and return it. We'll see if this image can be found in the dmp.
 
-#### ta2521lw.nbq.dll
+##### ta2521lw.nbq.dll
 
 This is the main `GruntExecutor`, it appears to just talk with other grunts and not do anything interesting.
 
-### Memory analysis
+#### Memory analysis
 
-#### part 1/2
+##### part 1/2
 
 We know the flag format is in the format `*_*_*` at least, so why not see if that's in memory already.
 
@@ -157,7 +157,7 @@ calculated: cmd.exe /c echo "part 1/2: when_you_see_sharp_"
 
 There was a lot of false positives, but I think that's part 1 of the flag.
 
-#### part 2/2
+##### part 2/2
 
 Earlier we saw the task to take a screenshot, which I bet has the flag. Question is, how to get get the image?
 
@@ -210,13 +210,13 @@ There's several images, but after going through a few I found `83AABA`, which co
 
 ![image contains the 2nd part of the flag](/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png)
 
-## Solution
+### Solution
 
 Putting those two strings together, the solution is
 ```
 when_you_see_sharp_those_hackers_dont_stand_a_chance
 ```
 
-# Conclusion
+## Conclusion
 
 This was quite an interesting forensics challenge, I'd never analysed a windows dump before and got to use a few new tools. Thanks a lot to MetaCTF for creating this challenge!

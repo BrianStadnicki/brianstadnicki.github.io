@@ -16,16 +16,16 @@ Difficulty   | 2.7
 Quality      | 4.0
 Arch         | x86
 
-# Initial run
+## Initial run
 ```
-## The goal of this crackme is to find the key! ##
+### The goal of this crackme is to find the key! ##
 
 Enter the key :
 ```
 
 Asks for a key, exits if it's false, and gives a message if it's correct.
 
-# Initial analysis
+## Initial analysis
 ```
             +-----+
             |Print|
@@ -53,9 +53,9 @@ Asks for a key, exits if it's false, and gives a message if it's correct.
 ```
 This is a very high level overview of what this program does, it's simple enough to see all the logic in the main function.
 
-# Input string encryption
+## Input string encryption
 
-```x86
+```asm
 .text:00402160 asterisk_and_continue:
 .text:00402160 lea     edx, [esi+3]    ; encryption key
 .text:00402163 xor     dl, ds:400000h  ; 4Dh
@@ -79,9 +79,9 @@ def encrypt(input):
   return encrypted
 ```
 
-# Input string hashing
+## Input string hashing
 
-```x86
+```asm
 .text:004023E3 hash_input:
 .text:004023E3 movsx   esi, byte ptr [eax] ; get current char
 .text:004023E6 add     eax, 1 ; inc char counter
@@ -115,9 +115,9 @@ def hash(input):
   return result
 ```
 
-# Result comparison
+## Result comparison
 
-```x86
+```asm
 .text:004023FC cmp     ecx, edi ; compare result with correct hash
 .text:004023FE mov     [esp], ebx
 .text:00402401 jz      short success_caller
@@ -131,10 +131,10 @@ def validate(input_hash, correct_hash):
   return input_hash == correct_hash
 ```
 
-# Correct hash
+## Correct hash
 The correct hash, as far as I can tell, does not depend on any external factors, so it will never change. Therefore, checking `ecx` at `.text:004023FC cmp     ecx, edi` shows us that the correct hash is `0x931F6CE`.
 
-# Brute force code
+## Brute force code
 Now that we have all the parts to this, we can create a brute-force solution. You can download it [here](/posts/crackmes-marquier-crackme-v4-marquire/keygen.py)
 
 ```python
@@ -169,9 +169,9 @@ while True:
     print(key)
 ```
 
-# Success
+## Success
 ```
-## The goal of this crackme is to find the key! ##
+### The goal of this crackme is to find the key! ##
 
 Enter the key : *************
 ->right!

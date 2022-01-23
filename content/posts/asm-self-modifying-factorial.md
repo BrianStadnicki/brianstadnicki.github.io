@@ -10,11 +10,11 @@ Self-modifying programs seem to be viewed as something magical, but they're quit
 
 To demonstrate this, I'll be writing a self-modifying factorial program in x86, specifically in nasm.
 
-# Basic factorial
+## Basic factorial
 
 To write a self-modifying factorial program, we first need a normal factorial program.
 
-```x86
+```asm
 factorial:
     push ebp
     mov ebx, eax
@@ -31,23 +31,23 @@ factorial_end:
 
 This is quite simple, if it needs explanation then this isn't for you.
 
-# Self-modifying factorial
+## Self-modifying factorial
 
 In the factorial algorithm, there are 2 places where it makes somewhat sense to be modifying in values during runtime: the initial starting value, and the value multiplied by.
 
-## Technical issues
+### Technical issues
 
 First of all, self-modifying programs are a bit special. By default, `nasm` will assemble the program into something which can't self-modify, because the `.text` section is marked as not writable for security reasons. `objcopy` and a custom program need to be used to change the flags on the `.text` section to allow for it to be written to during runtime.
 
 You can see my script for building these programs [here](https://github.com/BrianStadnicki/self-modifying-assembly-examples/blob/master/bin/execute.sh).
 
-## Starting value
+### Starting value
 
 In the original code, the starting number is passed in through the `eax` register.
 
 To use self-modifying code for this, first there needs to be an empty `mov` into `eax` at the start of the function.
 
-```x86
+```asm
 _start:
     mov dword [factorial+2], 0x5
     call factorial
@@ -59,9 +59,9 @@ factorial:
 
 As you can see, to pass in the starting value, the program modifies the `mov eax, 0` instruction. The instruction's `0` value is 2 bytes offsetted from the start of the `factorial` method.
 
-## Multiplier
+### Multiplier
 
-```x86
+```asm
 factorial_start:
     ; multiply
     mov ebx, 0
@@ -70,17 +70,17 @@ factorial_start:
 
 Here is the stub used for the multiplication. Next is needed the logic for setting up the `mov ebx, 0`, decrementing it, and exiting the loop.
 
-### Multiplier init
+#### Multiplier init
 
 To setup the multiplier, take `ebx`, which stores the first value of the multiplier, and copy it into `mov eax, 0` at the start of the `factorial_start` method.
 
-```x86
+```asm
 factorial:
     ...
     mov dword [factorial_start+1], ebx ; init decrementer
 ```
 
-### Multiplier decrement
+#### Multiplier decrement
 
 In a standard program, the logic is as follows:
  - Decrement the multiplier
@@ -91,7 +91,7 @@ The only part of this which changes in this self-modfying program is decrementin
 
 To decrement the multipler, it needs to fetch what it is currently, decrement it, and copy it back in.
 
-```x86
+```asm
 factorial_start:
     ...
     ; decrement
@@ -100,11 +100,11 @@ factorial_start:
     mov dword [factorial_start+1], ebx
 ```
 
-## Result
+### Result
 
 Putting it all together, here's what it ends up as:
 
-```x86
+```asm
 extern printf
 
 section .data
@@ -156,7 +156,7 @@ factorial_end:
     ret
 ```
 
-# Conclusion
+## Conclusion
 
 Self-modifying programs are interesting. Their code looks a bit different, a bit messy and with empty values, but they're definitely interesting to think through the logic for.
 

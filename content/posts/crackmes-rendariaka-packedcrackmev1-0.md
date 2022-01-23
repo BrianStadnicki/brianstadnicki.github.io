@@ -16,7 +16,7 @@ Difficulty   | 2.0
 Quality      | 4.0
 Arch         | x86
 
-# First run
+## First run
 
 ```
 Enter serial number:
@@ -25,7 +25,7 @@ Enter serial number:
 
 Entering the incorrect serial causes it to exit.
 
-# Initial static analysis
+## Initial static analysis
 As by the name suggests, this crackme is packed.
 
 ```
@@ -76,7 +76,7 @@ file                        | n/a                         | n/a                 
 
 The sections `.text` and `.yC` look to be most of interest as they are marked as self-modifying.
 
-# Dumping
+## Dumping
 
 To figure out where the unpacked exe is, we can use [tiny tracer](https://github.com/hasherezade/tiny_tracer), which nicely logs all the api calls of interest. I'll make a mental note to make a x32dbg version of this if I get the chance.
 
@@ -105,7 +105,7 @@ Address  | Size     | Info
 
 We'll simply use Scylla to dump the process.
 
-# Analysing dump
+## Analysing dump
 
 Using the string "Enter serial number: \n", finding the responsible function is quite easy.
 
@@ -131,7 +131,7 @@ Using the string "Enter serial number: \n", finding the responsible function is 
 
 On a wild guess, let's try just entering 0x72436 and see what happens.
 
-# Success
+## Success
 
 ```
 Enter serial number:

@@ -10,8 +10,8 @@ There's plenty of decompilers for most compiled languages, but what about rust? 
 
 Fair warning, this is my first dive into assembly reverse engineering since I did basic crackmes a few years ago, so be prepared for vagueness while I'm trying to learn.
 
-# First beginnings
-### Hello World!
+## First beginnings
+#### Hello World!
 Let's begin with the standard hello world.
 
 ```rust

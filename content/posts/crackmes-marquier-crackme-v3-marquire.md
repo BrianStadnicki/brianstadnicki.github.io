@@ -17,12 +17,12 @@ Difficulty   | 1.3
 Quality      | 4.3
 Arch         | x86
 
-## Initial run
+### Initial run
 ![Asks for the key](/posts/crackmes-marquier-crackme-v3-marquire/initial-run.png)
 
 It's very standard, it just asks for the key and tells us if it's right or wrong.
 
-## Initial analysis
+### Initial analysis
 ![Simple program structure](/posts/crackmes-marquier-crackme-v3-marquire/graph-overview.png)
 
 It's quite clear what's going on. Ask for the input, do some simple logic, say if right or wrong and exit.
@@ -31,7 +31,7 @@ It's quite clear what's going on. Ask for the input, do some simple logic, say i
 
 The validation logic just compares each letter of our input (`[esp+113h]`, `[esp+114h]` ...) to randomly placed out offsets (`[esp+39h]`, `[esp_2Ch]` ...), checking to see if they're equal.
 
-## Dynamic analysis
+### Dynamic analysis
 Since I don't know where `esp` is statically, this'll require some basic dynamic analysis.
 
 The IDA Pro debugger makes this very easy, simply hover over the address and it'll preview the values there.
@@ -42,7 +42,7 @@ Address `[esp+32h]` contains `S`, which is compared to the first letter of our i
 
 Using this, we can follow through the validation logic and obtain the correct key.
 
-## Solving
+### Solving
 Here's the debugging results:
  - 1 - `[esp+112h]` == `[esp+32h]` / `S`
  - 2 - `[esp+113h]` == `[esp+39h]` / `T`
@@ -58,21 +58,21 @@ Here's the debugging results:
 
 I'll turn that into some easier to read pseudo-code.
 
-```
-input[0] == 'S' &&
-input[1] == 'T' &&
-input[2] == 'I' &&
-input[3] == 'L' &&
-input[4] == input[3] && // 'L'
-input[5] == '_' &&
-input[6] == 'E' &&
-input[7] == 'A' &&
-input[8] == input[0] && // 'S'
-input[9] == 'Y' &&
+```C
+input[0] == 'S'
+input[1] == 'T'
+input[2] == 'I'
+input[3] == 'L'
+input[4] == input[3] // 'L'
+input[5] == '_'
+input[6] == 'E'
+input[7] == 'A'
+input[8] == input[0] // 'S'
+input[9] == 'Y'
 input[10] == '?'
 ```
 
-## Success
+### Success
 
 ![Success](/posts/crackmes-marquier-crackme-v3-marquire/success.png)
 
