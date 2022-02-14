@@ -1,6 +1,6 @@
 <!doctype html><html lang=en>
 <head>
-<meta name=generator content="Hugo 0.92.1">
+<meta name=generator content="Hugo 0.92.2">
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
@@ -54,6 +54,14 @@
 <main class=main>
 <div class=container><div class="page home" posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=Posts><img class=lazyload src=/svg/loading.min.svg data-src=/avatar.jpg data-srcset="/avatar.jpg, /avatar.jpg 1.5x, /avatar.jpg 2x" data-sizes=auto alt=/avatar.jpg title=/avatar.jpg></a></div><h2 class=home-subtitle>Brian Stadnicki's reverse engineering & malware analysis blog</h2><div class=links><a href=https://github.com/BrianStadnicki title=GitHub target=_blank rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href=https://linkedin.com/in/brian-stadnicki-474997214 title=LinkedIn target=_blank rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a><a href=https://twitter.com/BrianStadnicki title=Twitter target=_blank rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://news.ycombinator.com/user?id=FastEatSlow" title="Hacker News" target=_blank rel="noopener noreffer me"><i class="fab fa-hacker-news fa-fw"></i></a><a href=mailto:stadnickibrian@gmail.com title=Email rel=me><i class="far fa-envelope fa-fw"></i></a><a href=/index.xml title=RSS target=_blank rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
+<a href=/posts/asm-self-modifying-factorial/>Writing a self-modifying x86 factorial program</a>
+</h1><div class=post-meta><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-publish>published on <time datetime=2021-12-15>2021-12-15</time></span>&nbsp;<span class=post-category>included in <a href=/categories/asm/><i class="far fa-folder fa-fw"></i>asm</a></span></div><div class=content>Self-modifying programs seem to be viewed as something magical, but they&rsquo;re quite simple.
+To demonstrate this, I&rsquo;ll be writing a self-modifying factorial program in x86, specifically in nasm.
+Basic factorial To write a self-modifying factorial program, we first need a normal factorial program.
+factorial: push ebp mov ebx, eax factorial_start: sub ebx, 1 cmp ebx, 0 je factorial_end mul ebx jmp factorial_start factorial_end: pop ebp ret This is quite simple, if it needs explanation then this isn&rsquo;t for you.</div><div class=post-footer>
+<a href=/posts/asm-self-modifying-factorial/>Read More</a><div class=post-tags>
+<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/self-modifying/>self-modifying</a></div></div>
+</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
 <a href=/posts/ctf-metactf-cybergames-2021-step-into-net/>.NET dmp forensics challenge</a>
 </h1><div class=post-meta><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-publish>published on <time datetime=2021-12-08>2021-12-08</time></span>&nbsp;<span class=post-category>included in <a href=/categories/ctf/><i class="far fa-folder fa-fw"></i>ctf</a></span></div><div class=content>This is a challenge from MetaCTF CyberGames 2021. It included .NET dump memory forensics, which doesn&rsquo;t look to be very common knowledge on how to do, so hopefully this writeup can help with that.
 Step into the NET For the grand finale, it&rsquo;s time to put all of your analysis skills together. You&rsquo;re going to face a little bit of Crypto & Reverse Engineering and a whole lot of Forensics.</div><div class=post-footer>
@@ -88,12 +96,6 @@ Sample This sample is from any.run.
 Property Value File Type Microsoft Excel 97-2003 Worksheet File Size 35.6 KB MD5 b54c993e941836bf2c9c69948b30bcf0 SHA1 a3e6234b5310a3918b9e01c08badf3eb5f44a4b8 SHA256 3861795ece849d6b417a3c9870a7e0a0eccd27f74e706b9242d94d5e8885b705 VBA Extraction Using olevba, we can view the vba code inside.</div><div class=post-footer>
 <a href=/posts/htb-challenge-93/>Read More</a><div class=post-tags>
 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/forensics/>forensics</a>,&nbsp;<a href=/tags/excel/>excel</a>,&nbsp;<a href=/tags/vba/>vba</a>,&nbsp;<a href=/tags/injection/>injection</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/posts/malware-kaspersky-trial-reset-v2/>Analysis of Kasperky Trial Reset V2</a>
-</h1><div class=post-meta><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-publish>published on <time datetime=2021-11-21>2021-11-21</time></span>&nbsp;<span class=post-category>included in <a href=/categories/malware-analysis/><i class="far fa-folder fa-fw"></i>malware analysis</a></span></div><div class=content>I&rsquo;ve picked this sample from any.run. It appears to be a trojan tricking people who can&rsquo;t afford Kasperky with a RAT, with the kasperky logo to match.
-Property Value File Type Portable Executable 32 File Size 862.00 KB FileTitle Kasperky Trial Reset FileDescription Protected with AzeFuscator Extended FileVersion 1,0,0,0 ProductName Protectd with AzeFuscator Extended MD5 d56e6af4d2f9170cf312f110f3fa8511 SHA1 1e5be78908b38b9c6e7d6593888e355ee270a6c2 SHA256 aef7cef69eb5e31673d034239aff208061fa61e8b5c8355b933e14f5818e4433 Loader analysis The loader is very simple, just some misc methods along with a call to CreateProcessA, and the imports fopen, fwrite and fclose, which are used for writing the unpacked executable to the disk.</div><div class=post-footer>
-<a href=/posts/malware-kaspersky-trial-reset-v2/>Read More</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/malware/>malware</a>,&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/trojan/>trojan</a>,&nbsp;<a href=/tags/rat/>rat</a>,&nbsp;<a href=/tags/.net/>.NET</a></div></div>
 </article><ul class=pagination><li class=page-item>
 <span class=page-link>
 <a href=/>1</a>
@@ -112,7 +114,7 @@ Property Value File Type Portable Executable 32 File Size 862.00 KB FileTitle Ka
 </span>
 </li></ul></div></div>
 </main><footer class=footer>
-<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.1">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
 </div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div>
 </div>
 </footer></div>

@@ -1,6 +1,6 @@
 <!doctype html><html lang=en>
 <head>
-<meta name=generator content="Hugo 0.92.1">
+<meta name=generator content="Hugo 0.92.2">
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
@@ -54,6 +54,13 @@
 <main class=main>
 <div class=container><div class="page home" posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=Posts><img class=lazyload src=/svg/loading.min.svg data-src=/avatar.jpg data-srcset="/avatar.jpg, /avatar.jpg 1.5x, /avatar.jpg 2x" data-sizes=auto alt=/avatar.jpg title=/avatar.jpg></a></div><h2 class=home-subtitle>Brian Stadnicki's reverse engineering & malware analysis blog</h2><div class=links><a href=https://github.com/BrianStadnicki title=GitHub target=_blank rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href=https://linkedin.com/in/brian-stadnicki-474997214 title=LinkedIn target=_blank rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a><a href=https://twitter.com/BrianStadnicki title=Twitter target=_blank rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://news.ycombinator.com/user?id=FastEatSlow" title="Hacker News" target=_blank rel="noopener noreffer me"><i class="fab fa-hacker-news fa-fw"></i></a><a href=mailto:stadnickibrian@gmail.com title=Email rel=me><i class="far fa-envelope fa-fw"></i></a><a href=/index.xml title=RSS target=_blank rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
+<a href=/posts/malware-freebitcoin-next-roll-prediction/>Analysis of FreeBitco.in Next Roll Prediction</a>
+</h1><div class=post-meta><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-publish>published on <time datetime=2021-11-05>2021-11-05</time></span>&nbsp;<span class=post-category>included in <a href=/categories/malware-analysis/><i class="far fa-folder fa-fw"></i>malware analysis</a></span></div><div class=content>Malware obtained from any.run. It&rsquo;s a bitcoin scam executable.
+Property Value MD5 afb30fed336e9b1e5e8ea5d941691b2a SHA1 afeb330ea75da11608bc4f32d3490ed38cfd4c11 SHA256 16b4664969ce27b9914dc9d41b5baa16a341e00f442527efffd478a73a014fa1 2 EXEs dropped Running procmon when running the malware shows that 2 possibly interesting executables are created: C:\Users\IEUser\AppData\Roaming\Microsoft\gons.exe and C:\Users\IEUser\AppData\Roaming\Microsoft\temp5789e.exe. Both of these dropped executables are .NET assemblies, so they should be trivial to reverse.
+gons.exe Opening gons in dnSpy shows that this executable is responsible for the GUI, and I didn&rsquo;t notice any malicious behaviour initially.</div><div class=post-footer>
+<a href=/posts/malware-freebitcoin-next-roll-prediction/>Read More</a><div class=post-tags>
+<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/malware/>malware</a>,&nbsp;<a href=/tags/bitcoin/>bitcoin</a>,&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/trojan/>trojan</a></div></div>
+</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
 <a href=/posts/crackmes-marquier-crackme-v3-marquire/>Cracking Marquire's CrackMe_V3_Marquire</a>
 </h1><div class=post-meta><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-publish>published on <time datetime=2021-10-24>2021-10-24</time></span>&nbsp;<span class=post-category>included in <a href=/categories/crackmes/><i class="far fa-folder fa-fw"></i>crackmes</a></span></div><div class=content>Let&rsquo;s start off the crackmes series with a basic one: Marquire&rsquo;s CrackMe_V3_Marquire .
 Property Value Language C/C++ Platform Windows Difficulty 1.3 Quality 4.3 Arch x86 Initial run It&rsquo;s very standard, it just asks for the key and tells us if it&rsquo;s right or wrong.
@@ -90,7 +97,7 @@ Fair warning, this is my first dive into assembly reverse engineering since I di
 </span>
 </li></ul></div></div>
 </main><footer class=footer>
-<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.1">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
 </div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div>
 </div>
 </footer></div>
