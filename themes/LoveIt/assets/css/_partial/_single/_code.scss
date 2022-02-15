@@ -7,6 +7,7 @@ code {
   font-size: $code-font-size;
   font-family: $code-font-family;
   color: $code-color;
+  overflow: auto;
 
   [theme=dark] & {
     color: $code-color-dark;
