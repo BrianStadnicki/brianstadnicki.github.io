@@ -46,3 +46,5 @@ adb pull /dev/block/mtdblock6 env.img           # uboot params
 ```
 
 There you have it, that's the firmware. It appears to be based off [ESP32-CAM-Linux-Motion](https://github.com/xenpac/ESP32-CAM-Linux-Motion) and [MiniGui](https://minigui.fmsoft.cn/).
+
+I did plan to reverse engineer the protocol used to control with the camera, but a library already exists, [actioncam](https://github.com/jonas-koeritz/actioncam).
