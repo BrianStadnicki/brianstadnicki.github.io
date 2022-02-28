@@ -18,185 +18,93 @@ Step into the NET For the grand finale, it&rsquo;s time to put all of your analy
 <meta name=application-name content="Brian Stadnicki">
 <meta name=apple-mobile-web-app-title content="Brian Stadnicki"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/ctf-metactf-cybergames-2021-step-into-net/><link rel=prev href=https://brianstadnicki.github.io/posts/ctf-metactf-cybergames-2021/><link rel=next href=https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":".NET dmp forensics challenge","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/ctf-metactf-cybergames-2021-step-into-net\/"},"genre":"posts","keywords":"reverse engineering, forensics, wireshark, windbg, metactf, .NET","wordcount":1002,"url":"https:\/\/brianstadnicki.github.io\/posts\/ctf-metactf-cybergames-2021-step-into-net\/","datePublished":"2021-12-08T00:00:00+00:00","dateModified":"2021-12-08T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head>
-<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/ctf-metactf-cybergames-2021-step-into-net/><link rel=prev href=https://brianstadnicki.github.io/posts/ctf-metactf-cybergames-2021/><link rel=next href=https://brianstadnicki.github.io/posts/asm-self-modifying-factorial/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":".NET dmp forensics challenge","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/ctf-metactf-cybergames-2021-step-into-net\/"},"genre":"posts","keywords":"reverse engineering, forensics, wireshark, windbg, metactf, .NET","wordcount":1002,"url":"https:\/\/brianstadnicki.github.io\/posts\/ctf-metactf-cybergames-2021-step-into-net\/","datePublished":"2021-12-08T00:00:00+00:00","dateModified":"2021-12-08T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":''==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:''==="dark")&&document.body.setAttribute("theme","dark")</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
-</div>
-<div class=menu>
+</div><div class=menu>
 <div class=menu-inner><a class=menu-item href=/posts/> Posts </a><a class=menu-item href=/resume.pdf> Resume </a><a class=menu-item href=/tags/> Tags </a><a class=menu-item href=/categories/> Categories </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
 <i class="fas fa-adjust fa-fw"></i>
 </a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
+</div></div></div></header><header class=mobile id=header-mobile>
 <div class=header-container>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
+</div><div class=menu-toggle id=menu-toggle-mobile>
 <span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+</div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
 <i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
+</a></div></div></header><div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div></div><main class=main>
 <div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>Contents</h2>
-<div class="toc-content always-active" id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">.NET dmp forensics challenge</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/ctf/><i class="far fa-folder fa-fw"></i>ctf</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-12-08>2021-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1002 words&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
+<h2 class=toc-title>Contents</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">.NET dmp forensics challenge</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/ctf/><i class="far fa-folder fa-fw"></i>ctf</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-12-08>2021-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1002 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div></div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>Contents</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#step-into-the-net>Step into the NET</a></li>
-<li><a href=#solving>Solving</a>
+<li><a href=#step-into-the-net>Step into the NET</a></li><li><a href=#solving>Solving</a>
 <ul>
-<li><a href=#packet-analysis>Packet analysis</a></li>
-<li><a href=#dump-analysis>Dump analysis</a>
+<li><a href=#packet-analysis>Packet analysis</a></li><li><a href=#dump-analysis>Dump analysis</a>
 <ul>
 <li><a href=#dumping-code>Dumping code</a>
 <ul>
-<li><a href=#eilxxsbdhtbdxhkqqnppecxdtwdobdll>EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll</a></li>
-<li><a href=#kxwieowcbruexe>kxwieowc.bru.exe</a></li>
-<li><a href=#if3vizgzguedll>if3vizgz.gue.dll</a></li>
-<li><a href=#ouzwwjnrdrpuqiqxtbtadedpamrdadll>OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll</a></li>
-<li><a href=#q2foozwnpi1dll>q2foozwn.pi1.dll</a></li>
-<li><a href=#ta2521lwnbqdll>ta2521lw.nbq.dll</a></li>
-</ul>
-</li>
-<li><a href=#memory-analysis>Memory analysis</a>
+<li><a href=#eilxxsbdhtbdxhkqqnppecxdtwdobdll>EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll</a></li><li><a href=#kxwieowcbruexe>kxwieowc.bru.exe</a></li><li><a href=#if3vizgzguedll>if3vizgz.gue.dll</a></li><li><a href=#ouzwwjnrdrpuqiqxtbtadedpamrdadll>OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll</a></li><li><a href=#q2foozwnpi1dll>q2foozwn.pi1.dll</a></li><li><a href=#ta2521lwnbqdll>ta2521lw.nbq.dll</a></li></ul></li><li><a href=#memory-analysis>Memory analysis</a>
 <ul>
-<li><a href=#part-12>part 1/2</a></li>
-<li><a href=#part-22>part 2/2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href=#solution>Solution</a></li>
-</ul>
-</li>
-<li><a href=#conclusion>Conclusion</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><p>This is a challenge from MetaCTF CyberGames 2021. It included .NET dump memory forensics, which doesn&rsquo;t look to be very common knowledge on how to do, so hopefully this writeup can help with that.</p>
-<h2 id=step-into-the-net>Step into the NET</h2>
-<p>For the grand finale, it&rsquo;s time to put all of your analysis skills together. You&rsquo;re going to face a little bit of Crypto & Reverse Engineering and a whole lot of Forensics.</p>
-<p>We&rsquo;ve taken the liberty of collecting a <a href=https://metaproblems.com/5450f756cf49545a1061e7d28ee45d1a/step_into_the_net.pcapng target=_blank rel="noopener noreffer">packet capture</a> and <a href=https://metaproblems.com/5450f756cf49545a1061e7d28ee45d1a/step_into_the_net.7z target=_blank rel="noopener noreffer">a process dump</a> of the beacon in question for you.</p>
-<p>In order give our management the clarity they need, we want to know <em>exactly</em> what actions the attackers took on this high value machine (note - this is a different memory dump/pcap from any previous problem). In order to do this, you&rsquo;re going to want to match the information in the pcap and extract critical data you need from the memory dump to put together a picture of what happened.</p>
-<h2 id=solving>Solving</h2>
-<h3 id=packet-analysis>Packet analysis</h3>
-<p>First of all, let&rsquo;s look at the packet capture to see what we&rsquo;re dealing with, using wireshark.</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png title="all packets"></p>
-<p>Immediately I see two packets of interest:</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png title="packets of interest"></p>
-<p><code>GET /en-us/docs.html</code> is of interest because immediately after we see a huge amount of data (in purple) being sent over. I ignore <code>GET /latest/meta-data/instance-action</code> because that&rsquo;s something about an aws ec2 server that was accidentally left in.</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png title="packet to ignore"></p>
-<p>To see how the packets of interest are involved in the entire converstation, use the <code>follow http stream</code>.</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png title="use follow http stream feature"></p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png title="interesting http stream"></p>
-<p>Immediately one detail stands out: the entire conversation is 630kB. It&rsquo;s likely that a program is sent over here. I tried to see if there was any useful data in the huge blocks of text, but it&rsquo;s probably encrypted.</p>
-<p>There&rsquo;s not too much useful information here, it&rsquo;s just the packet capture of something encrypted being downloaded.</p>
-<h3 id=dump-analysis>Dump analysis</h3>
-<p>This is a windows dump file, so we&rsquo;ll use <code>WinDbg</code> to analyse it.</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png title="Open the dump in windbg"></p>
-<p>To analyse the .NET program, first install <a href=https://github.com/rodneyviana/netext target=_blank rel="noopener noreffer">netext</a>.</p>
-<pre tabindex=0><code>0:000&gt; .load netext
-</code></pre><h4 id=dumping-code>Dumping code</h4>
-<p>First of all, we need to check out the running code. To do this, we need to dump it first.</p>
-<pre tabindex=0><code>0:000&gt; !wmodule -managed -saveto C:\Users\IEUser\Downloads\net\dump
-Saved 'C:\Users\IEUser\Downloads\net\dump\Grunt.exe' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.Windows.Forms.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.Drawing.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.Xml.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.Configuration.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.Core.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\System.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\mscorlib.ni.dll' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\ta2521lw.nbq, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\if3vizgz.gue, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\EILxxsbDHTbdXhkqQNppeCxDtWdOB, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\q2foozwn.pi1, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' successfully
-Saved 'C:\Users\IEUser\Downloads\net\dump\OUZWwjnRdRpuqIqXtbtAdEDpAmRDA, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' successfully
-</code></pre><p>As ever with anything .NET, load the files that aren&rsquo;t system files into dnSpy.</p>
-<h5 id=eilxxsbdhtbdxhkqqnppecxdtwdobdll>EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll</h5>
-<p>This is just an empty dll.</p>
-<h5 id=kxwieowcbruexe>kxwieowc.bru.exe</h5>
-<p>The executable has an entrypoint at <code>GruntStager.GruntStager.Main</code>. Googling this reveals that this is likely a <a href=https://github.com/cobbr/Covenant target=_blank rel="noopener noreffer">Convenant</a> Grunt, the implant that is deployed to targets.</p>
-<p>It appears to do a lot of work to download an assembly and load it using <code>Assembly.Load(aes2.CreateDecryptor()...</code>.</p>
-<h5 id=if3vizgzguedll>if3vizgz.gue.dll</h5>
-<p>This holds the <a href=https://github.com/cobbr/SharpSploit target=_blank rel="noopener noreffer">SharpSploit</a> library, specifically for <a href=https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Execution/Shell.cs target=_blank rel="noopener noreffer">executing PowerShell code</a>.</p>
-<h5 id=ouzwwjnrdrpuqiqxtbtadedpamrdadll>OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll</h5>
-<p>This is just an empty dll.</p>
-<h5 id=q2foozwnpi1dll>q2foozwn.pi1.dll</h5>
-<p>First of all, this dll has an interesting attribute:</p>
-<pre tabindex=0><code>[module: ConfusedBy(&quot;Confuser.Core 1.1.0-alpha1.52+gfe12a44191&quot;)]
-</code></pre><p>It appears that this executable has been protected by <a href=https://github.com/yck1509/ConfuserEx target=_blank rel="noopener noreffer">ConfuserEx</a>, which is not in development anymore. Because it is a protector, it can be defeated by a memory dump.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-C# data-lang=C#><span class=k>public</span> <span class=k>static</span> <span class=k>class</span> <span class=nc>Task</span>
-<span class=p>{</span>
-	<span class=c1>// Token: 0x06000035 RID: 53 RVA: 0x000033CC File Offset: 0x000015CC
-</span><span class=c1></span>	<span class=k>public</span> <span class=k>static</span> <span class=kt>string</span> <span class=n>Execute</span><span class=p>()</span>
-	<span class=p>{</span>
-		<span class=kt>string</span> <span class=n>result</span><span class=p>;</span>
-		<span class=k>try</span>
-		<span class=p>{</span>
-			<span class=kt>int</span> <span class=n>left</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Left</span><span class=p>;</span>
-			<span class=kt>int</span> <span class=n>top</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Top</span><span class=p>;</span>
-			<span class=kt>int</span> <span class=n>width</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Width</span><span class=p>;</span>
-			<span class=kt>int</span> <span class=n>height</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Height</span><span class=p>;</span>
-			<span class=k>using</span> <span class=p>(</span><span class=n>Bitmap</span> <span class=n>bitmap</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Bitmap</span><span class=p>(</span><span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>))</span>
-			<span class=p>{</span>
-				<span class=k>using</span> <span class=p>(</span><span class=n>Graphics</span> <span class=n>graphics</span> <span class=p>=</span> <span class=n>Graphics</span><span class=p>.</span><span class=n>FromImage</span><span class=p>(</span><span class=n>bitmap</span><span class=p>))</span>
-				<span class=p>{</span>
-					<span class=n>graphics</span><span class=p>.</span><span class=n>CopyFromScreen</span><span class=p>(</span><span class=n>left</span><span class=p>,</span> <span class=n>top</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=n>bitmap</span><span class=p>.</span><span class=n>Size</span><span class=p>);</span>
-				<span class=p>}</span>
-				<span class=n>MemoryStream</span> <span class=n>memoryStream</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MemoryStream</span><span class=p>();</span>
-				<span class=n>bitmap</span><span class=p>.</span><span class=n>Save</span><span class=p>(</span><span class=n>memoryStream</span><span class=p>,</span> <span class=n>ImageFormat</span><span class=p>.</span><span class=n>Png</span><span class=p>);</span>
-				<span class=n>result</span> <span class=p>=</span> <span class=n>Convert</span><span class=p>.</span><span class=n>ToBase64String</span><span class=p>(</span><span class=n>memoryStream</span><span class=p>.</span><span class=n>ToArray</span><span class=p>());</span>
-</code></pre></div><p>No surprise that this part was protected, it&rsquo;s probably a task for the Grunt to take a screenshot and return it. We&rsquo;ll see if this image can be found in the dmp.</p>
-<h5 id=ta2521lwnbqdll>ta2521lw.nbq.dll</h5>
-<p>This is the main <code>GruntExecutor</code>, it appears to just talk with other grunts and not do anything interesting.</p>
-<h4 id=memory-analysis>Memory analysis</h4>
-<h5 id=part-12>part 1/2</h5>
-<p>We know the flag format is in the format <code>*_*_*</code> at least, so why not see if that&rsquo;s in memory already.</p>
-<p>First of all, run</p>
-<pre tabindex=0><code>0:000&gt; !windex
-</code></pre><p>so that netext can indexe ael the objecets in memory, ready for our querying. Now we can run the query for a possible flag.</p>
-<pre tabindex=0><code>0:000&gt; !wfrom -type System.String where ( $wildcardmatch($string(), &quot;*_*_*&quot;) ) select $addr(), $string()
+<li><a href=#part-12>part 1/2</a></li><li><a href=#part-22>part 2/2</a></li></ul></li></ul></li><li><a href=#solution>Solution</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></div></div><div class=content id=content><p>This is a challenge from MetaCTF CyberGames 2021. It included .NET dump memory forensics, which doesn&rsquo;t look to be very common knowledge on how to do, so hopefully this writeup can help with that.</p><h2 id=step-into-the-net>Step into the NET</h2><p>For the grand finale, it&rsquo;s time to put all of your analysis skills together. You&rsquo;re going to face a little bit of Crypto & Reverse Engineering and a whole lot of Forensics.</p><p>We&rsquo;ve taken the liberty of collecting a <a href=https://metaproblems.com/5450f756cf49545a1061e7d28ee45d1a/step_into_the_net.pcapng target=_blank rel="noopener noreffer">packet capture</a> and <a href=https://metaproblems.com/5450f756cf49545a1061e7d28ee45d1a/step_into_the_net.7z target=_blank rel="noopener noreffer">a process dump</a> of the beacon in question for you.</p><p>In order give our management the clarity they need, we want to know <em>exactly</em> what actions the attackers took on this high value machine (note - this is a different memory dump/pcap from any previous problem). In order to do this, you&rsquo;re going to want to match the information in the pcap and extract critical data you need from the memory dump to put together a picture of what happened.</p><h2 id=solving>Solving</h2><h3 id=packet-analysis>Packet analysis</h3><p>First of all, let&rsquo;s look at the packet capture to see what we&rsquo;re dealing with, using wireshark.</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/all-packets.png title="all packets"></p><p>Immediately I see two packets of interest:</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/inital-interesting-packets.png title="packets of interest"></p><p><code>GET /en-us/docs.html</code> is of interest because immediately after we see a huge amount of data (in purple) being sent over. I ignore <code>GET /latest/meta-data/instance-action</code> because that&rsquo;s something about an aws ec2 server that was accidentally left in.</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/aws-ec2-metadata-request.png title="packet to ignore"></p><p>To see how the packets of interest are involved in the entire converstation, use the <code>follow http stream</code>.</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/follow-http-stream.png title="use follow http stream feature"></p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/packets/interesting-http-stream.png title="interesting http stream"></p><p>Immediately one detail stands out: the entire conversation is 630kB. It&rsquo;s likely that a program is sent over here. I tried to see if there was any useful data in the huge blocks of text, but it&rsquo;s probably encrypted.</p><p>There&rsquo;s not too much useful information here, it&rsquo;s just the packet capture of something encrypted being downloaded.</p><h3 id=dump-analysis>Dump analysis</h3><p>This is a windows dump file, so we&rsquo;ll use <code>WinDbg</code> to analyse it.</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/windbg-open-crash-dump.png title="Open the dump in windbg"></p><p>To analyse the .NET program, first install <a href=https://github.com/rodneyviana/netext target=_blank rel="noopener noreffer">netext</a>.</p><pre tabindex=0><code>0:000&gt; .load netext
+</code></pre><h4 id=dumping-code>Dumping code</h4><p>First of all, we need to check out the running code. To do this, we need to dump it first.</p><pre tabindex=0><code>0:000&gt; !wmodule -managed -saveto C:\Users\IEUser\Downloads\net\dump
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\Grunt.exe&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.Windows.Forms.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.Drawing.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.Xml.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.Configuration.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.Core.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\System.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\mscorlib.ni.dll&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\ta2521lw.nbq, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\if3vizgz.gue, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\EILxxsbDHTbdXhkqQNppeCxDtWdOB, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\q2foozwn.pi1, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null&#39; successfully
+Saved &#39;C:\Users\IEUser\Downloads\net\dump\OUZWwjnRdRpuqIqXtbtAdEDpAmRDA, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null&#39; successfully
+</code></pre><p>As ever with anything .NET, load the files that aren&rsquo;t system files into dnSpy.</p><h5 id=eilxxsbdhtbdxhkqqnppecxdtwdobdll>EILxxsbDHTbdXhkqQNppeCxDtWdOB.dll</h5><p>This is just an empty dll.</p><h5 id=kxwieowcbruexe>kxwieowc.bru.exe</h5><p>The executable has an entrypoint at <code>GruntStager.GruntStager.Main</code>. Googling this reveals that this is likely a <a href=https://github.com/cobbr/Covenant target=_blank rel="noopener noreffer">Convenant</a> Grunt, the implant that is deployed to targets.</p><p>It appears to do a lot of work to download an assembly and load it using <code>Assembly.Load(aes2.CreateDecryptor()...</code>.</p><h5 id=if3vizgzguedll>if3vizgz.gue.dll</h5><p>This holds the <a href=https://github.com/cobbr/SharpSploit target=_blank rel="noopener noreffer">SharpSploit</a> library, specifically for <a href=https://github.com/cobbr/SharpSploit/blob/master/SharpSploit/Execution/Shell.cs target=_blank rel="noopener noreffer">executing PowerShell code</a>.</p><h5 id=ouzwwjnrdrpuqiqxtbtadedpamrdadll>OUZWwjnRdRpuqIqXtbtAdEDpAmRDA.dll</h5><p>This is just an empty dll.</p><h5 id=q2foozwnpi1dll>q2foozwn.pi1.dll</h5><p>First of all, this dll has an interesting attribute:</p><pre tabindex=0><code>[module: ConfusedBy(&#34;Confuser.Core 1.1.0-alpha1.52+gfe12a44191&#34;)]
+</code></pre><p>It appears that this executable has been protected by <a href=https://github.com/yck1509/ConfuserEx target=_blank rel="noopener noreffer">ConfuserEx</a>, which is not in development anymore. Because it is a protector, it can be defeated by a memory dump.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-C# data-lang=C#><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>class</span> <span class=nc>Task</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// Token: 0x06000035 RID: 53 RVA: 0x000033CC File Offset: 0x000015CC</span>
+</span></span><span class=line><span class=cl>	<span class=k>public</span> <span class=k>static</span> <span class=kt>string</span> <span class=n>Execute</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=kt>string</span> <span class=n>result</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>try</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>left</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Left</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>top</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Top</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>width</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Width</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>height</span> <span class=p>=</span> <span class=n>SystemInformation</span><span class=p>.</span><span class=n>VirtualScreen</span><span class=p>.</span><span class=n>Height</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=k>using</span> <span class=p>(</span><span class=n>Bitmap</span> <span class=n>bitmap</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Bitmap</span><span class=p>(</span><span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=k>using</span> <span class=p>(</span><span class=n>Graphics</span> <span class=n>graphics</span> <span class=p>=</span> <span class=n>Graphics</span><span class=p>.</span><span class=n>FromImage</span><span class=p>(</span><span class=n>bitmap</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>				<span class=p>{</span>
+</span></span><span class=line><span class=cl>					<span class=n>graphics</span><span class=p>.</span><span class=n>CopyFromScreen</span><span class=p>(</span><span class=n>left</span><span class=p>,</span> <span class=n>top</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=n>bitmap</span><span class=p>.</span><span class=n>Size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>				<span class=p>}</span>
+</span></span><span class=line><span class=cl>				<span class=n>MemoryStream</span> <span class=n>memoryStream</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MemoryStream</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>				<span class=n>bitmap</span><span class=p>.</span><span class=n>Save</span><span class=p>(</span><span class=n>memoryStream</span><span class=p>,</span> <span class=n>ImageFormat</span><span class=p>.</span><span class=n>Png</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>				<span class=n>result</span> <span class=p>=</span> <span class=n>Convert</span><span class=p>.</span><span class=n>ToBase64String</span><span class=p>(</span><span class=n>memoryStream</span><span class=p>.</span><span class=n>ToArray</span><span class=p>());</span>
+</span></span></code></pre></div><p>No surprise that this part was protected, it&rsquo;s probably a task for the Grunt to take a screenshot and return it. We&rsquo;ll see if this image can be found in the dmp.</p><h5 id=ta2521lwnbqdll>ta2521lw.nbq.dll</h5><p>This is the main <code>GruntExecutor</code>, it appears to just talk with other grunts and not do anything interesting.</p><h4 id=memory-analysis>Memory analysis</h4><h5 id=part-12>part 1/2</h5><p>We know the flag format is in the format <code>*_*_*</code> at least, so why not see if that&rsquo;s in memory already.</p><p>First of all, run</p><pre tabindex=0><code>0:000&gt; !windex
+</code></pre><p>so that netext can indexe ael the objecets in memory, ready for our querying. Now we can run the query for a possible flag.</p><pre tabindex=0><code>0:000&gt; !wfrom -type System.String where ( $wildcardmatch($string(), &#34;*_*_*&#34;) ) select $addr(), $string()
 ...
-calculated: cmd.exe /c echo &quot;part 1/2: when_you_see_sharp_&quot;
-</code></pre><p>There was a lot of false positives, but I think that&rsquo;s part 1 of the flag.</p>
-<h5 id=part-22>part 2/2</h5>
-<p>Earlier we saw the task to take a screenshot, which I bet has the flag. Question is, how to get get the image?</p>
-<p>The image is in a <code>System.Drawing.Bitmap</code>, so let&rsquo;s see if we can find it in memory.</p>
-<pre tabindex=0><code>0:000&gt; !windex -type System.Drawing.Bitmap
+calculated: cmd.exe /c echo &#34;part 1/2: when_you_see_sharp_&#34;
+</code></pre><p>There was a lot of false positives, but I think that&rsquo;s part 1 of the flag.</p><h5 id=part-22>part 2/2</h5><p>Earlier we saw the task to take a screenshot, which I bet has the flag. Question is, how to get get the image?</p><p>The image is in a <code>System.Drawing.Bitmap</code>, so let&rsquo;s see if we can find it in memory.</p><pre tabindex=0><code>0:000&gt; !windex -type System.Drawing.Bitmap
 Index is up to date
  If you believe it is not, use !windex -flush to force reindex
 Address          MT                  Size Heap Gen Type Name
 0000000002620fd8 00007ffd6140bed8       48   0   0 System.Drawing.Bitmap
 
 1 Objects listed
-</code></pre><p>Seeing how there&rsquo;s only one Bitmap in memory, that&rsquo;s probably the screenshot.</p>
-<pre tabindex=0><code>0:000&gt; !wdo 0000000002620fd8
+</code></pre><p>Seeing how there&rsquo;s only one Bitmap in memory, that&rsquo;s probably the screenshot.</p><pre tabindex=0><code>0:000&gt; !wdo 0000000002620fd8
 Address: 0000000002620fd8
 Method Table/Token: 00007ffd6140bed8/200000e04 
 Class Name: System.Drawing.Bitmap
@@ -216,50 +124,25 @@ Inherits: System.Drawing.Image System.MarshalByRefObject System.Object (00007FFD
 00007ffd6ac35dd8                                    System.Object +0010                                 userData 0000000000000000
 00007ffd6acb31f8                                    System.IntPtr +0018                              nativeImage 0 (0n0)
 00007ffd6140ac20 Static                      System.Drawing.Color +0050                  defaultTransparentColor -mt 00007FFD6140AC20 000000001243B188
-</code></pre><p>However, when the bitmap object is dumped, there doesn&rsquo;t appear to be any way to get the actual raw data.</p>
-<p>We&rsquo;ll try using the classic tool, <code>binwalk</code>, to find the image in the memory.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ binwalk --dd<span class=o>=</span><span class=s1>&#39;.*&#39;</span> step_into_the_net.dmp
-</code></pre></div><p>There&rsquo;s several images, but after going through a few I found <code>83AABA</code>, which contains the 2nd part of the flag.</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png title="image contains the 2nd part of the flag"></p>
-<h3 id=solution>Solution</h3>
-<p>Putting those two strings together, the solution is</p>
-<pre tabindex=0><code>when_you_see_sharp_those_hackers_dont_stand_a_chance
-</code></pre><h2 id=conclusion>Conclusion</h2>
-<p>This was quite an interesting forensics challenge, I&rsquo;d never analysed a windows dump before and got to use a few new tools. Thanks a lot to MetaCTF for creating this challenge!</p>
-</div><div class=post-footer id=post-footer>
+</code></pre><p>However, when the bitmap object is dumped, there doesn&rsquo;t appear to be any way to get the actual raw data.</p><p>We&rsquo;ll try using the classic tool, <code>binwalk</code>, to find the image in the memory.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ binwalk --dd<span class=o>=</span><span class=s1>&#39;.*&#39;</span> step_into_the_net.dmp
+</span></span></code></pre></div><p>There&rsquo;s several images, but after going through a few I found <code>83AABA</code>, which contains the 2nd part of the flag.</p><p><img class=lazyload src=/svg/loading.min.svg data-src=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png data-srcset="/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png 1.5x, /posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png 2x" data-sizes=auto alt=/posts/ctf-metactf-cybergames-2021-step-into-net/dump/83AABA.png title="image contains the 2nd part of the flag"></p><h3 id=solution>Solution</h3><p>Putting those two strings together, the solution is</p><pre tabindex=0><code>when_you_see_sharp_those_hackers_dont_stand_a_chance
+</code></pre><h2 id=conclusion>Conclusion</h2><p>This was quite an interesting forensics challenge, I&rsquo;d never analysed a windows dump before and got to use a few new tools. Thanks a lot to MetaCTF for creating this challenge!</p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
 <span>Updated on 2021-12-08</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
+</div><div class=post-info-license></div></div><div class=post-info-line>
+<div class=post-info-md></div><div class=post-info-share>
 <span></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/forensics/>forensics</a>,&nbsp;<a href=/tags/wireshark/>wireshark</a>,&nbsp;<a href=/tags/windbg/>windbg</a>,&nbsp;<a href=/tags/metactf/>metactf</a>,&nbsp;<a href=/tags/.net/>.NET</a></section>
-<section>
+</div></div></div><div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/forensics/>forensics</a>,&nbsp;<a href=/tags/wireshark/>wireshark</a>,&nbsp;<a href=/tags/windbg/>windbg</a>,&nbsp;<a href=/tags/metactf/>metactf</a>,&nbsp;<a href=/tags/.net/>.NET</a></section><section>
 <span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/posts/ctf-metactf-cybergames-2021/ class=prev rel=prev title="Success in MetaCTF CyberGames 2021"><i class="fas fa-angle-left fa-fw"></i>Success in MetaCTF CyberGames 2021</a>
-<a href=/posts/asm-self-modifying-factorial/ class=next rel=next title="Writing a self-modifying x86 factorial program">Writing a self-modifying x86 factorial program<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+</section></div><div class=post-nav><a href=/posts/ctf-metactf-cybergames-2021/ class=prev rel=prev title="Success in MetaCTF CyberGames 2021"><i class="fas fa-angle-left fa-fw"></i>Success in MetaCTF CyberGames 2021</a>
+<a href=/posts/asm-self-modifying-factorial/ class=next rel=next title="Writing a self-modifying x86 factorial program">Writing a self-modifying x86 factorial program<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.93.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
 <i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title="View Comments">
 <i class="fas fa-comment fa-fw"></i>
 </a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body>
-</html>
+</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body></html>
