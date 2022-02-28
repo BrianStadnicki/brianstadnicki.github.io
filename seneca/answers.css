@@ -1,0 +1,54 @@
+#furl {
+    width: 80%;
+    margin: 5px;
+    font-size: large;
+}
+
+input[type=submit] {
+    width: 10%;
+    font-size: large;
+    color: white;
+    background: blue;
+}
+
+#answers {
+    padding-left: 3%;
+    padding-right: 3%;
+    border-color: orange;
+    border-style: dotted;
+}
+
+.question {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    border-color: blue;
+    border-style: dashed;
+}
+
+.question > * {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: larger;
+}
+
+.question-answer {
+    margin-left: 5%;
+}
+
+#answers > h1 {
+    border-color: green;
+    border-style: solid;
+    font-size: 500%;
+    text-align: center;
+}
+
+.content > h3 {
+    margin-left: 2%;
+    margin-right: 2%;
+    border-color: red;
+    border-style: solid;
+    font-size: 250%;
+    text-align: center;
+}
