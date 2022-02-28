@@ -1,0 +1,3 @@
+[submodule "content/seneca"]
+	path = content/seneca
+	url = https://github.com/BrianStadnicki/seneca-cheat.git
