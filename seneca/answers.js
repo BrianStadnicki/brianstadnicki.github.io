@@ -237,7 +237,19 @@ function generate_answers(answers) {
                 case "grid":
                     res += "<ul class=\"question-answer\">"
                     question["content"]["definitions"].forEach(definition => {
-                        res += `<li>${definition["word"]}: ${definition["text"]}</li>`
+                        if (typeof definition["word"] === "string") {
+                            res += `<li>${definition["word"]} -> ${definition["text"]}</li>`
+                        } else {
+                            let tmp = ""
+                            definition["word"].forEach(part => {
+                                if (typeof part === "string") {
+                                    tmp += part
+                                } else {
+                                    tmp += `<b>${part["word"]}</b>`
+                                }
+                            })
+                            res += `<li>${tmp} --> ${definition["text"]}</li>`
+                        }
                     })
                     res += "</ul>"
 
@@ -247,12 +259,30 @@ function generate_answers(answers) {
                         ${res}
                     </div>
                     `
+                    break
+                case "image-description":
+                    question["content"]["words"].forEach(part => {
+                        if (typeof part === "string") {
+                            res += part
+                        } else {
+                            res += `<b>${part["word"]}</b>`
+                        }
+                    })
+
+                    questions += `
+                    <div class="question">
+                        <p>${res}</p>
+                    </div>
+                    `
+                    break
             }
         })
         questions += `
         </div>
         `
     })
+
+    questions = questions.replaceAll("\$\$\\leftrightarrow\$\$", "<-->")
 
     return `
     <h1>${title}</h1>
