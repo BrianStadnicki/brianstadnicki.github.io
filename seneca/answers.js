@@ -18,7 +18,7 @@ window.onload = function onload() {
 async function fetch_answers(course, section) {
     return fetch(`https://course.app.senecalearning.com/api/courses/${course}/signed-url?sectionId=${section}`, {
         headers: {
-            correlationId: "1645980974364::c14d5fa2c03d21f9f17029f442096a61"
+            correlationId: (Math.random() + 1).toString(36).substring(7)
         }
     })
         .then(response => response.json())
