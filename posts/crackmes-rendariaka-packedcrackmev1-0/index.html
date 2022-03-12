@@ -1,65 +1,12 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>Cracking rendariaka's packedcrackmev1.0 - Brian Stadnicki</title><meta name=Description content><meta property="og:title" content="Cracking rendariaka's packedcrackmev1.0">
-<meta property="og:description" content="This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is rendariaka&rsquo;s packedcrackmev1.0
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Cracking rendariaka's packedcrackmev1.0 - Brian Stadnicki</title><meta name=Description content><meta property="og:title" content="Cracking rendariaka's packedcrackmev1.0"><meta property="og:description" content="This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is rendariaka&rsquo;s packedcrackmev1.0
    Property Value     Language C/C++   Platform Windows   Difficulty 2.0   Quality 4.0   Arch x86    First run Enter serial number: Entering the incorrect serial causes it to exit.
-Initial static analysis As by the name suggests, this crackme is packed.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://brianstadnicki.github.io/posts/crackmes-rendariaka-packedcrackmev1-0/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-11-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-11-11T00:00:00+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Cracking rendariaka's packedcrackmev1.0">
-<meta name=twitter:description content="This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is rendariaka&rsquo;s packedcrackmev1.0
+Initial static analysis As by the name suggests, this crackme is packed."><meta property="og:type" content="article"><meta property="og:url" content="https://brianstadnicki.github.io/posts/crackmes-rendariaka-packedcrackmev1-0/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-11-11T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-11T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Cracking rendariaka's packedcrackmev1.0"><meta name=twitter:description content="This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is rendariaka&rsquo;s packedcrackmev1.0
    Property Value     Language C/C++   Platform Windows   Difficulty 2.0   Quality 4.0   Arch x86    First run Enter serial number: Entering the incorrect serial causes it to exit.
-Initial static analysis As by the name suggests, this crackme is packed.">
-<meta name=application-name content="Brian Stadnicki">
-<meta name=apple-mobile-web-app-title content="Brian Stadnicki"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/crackmes-rendariaka-packedcrackmev1-0/><link rel=prev href=https://brianstadnicki.github.io/posts/malware-vzlom-vk/><link rel=next href=https://brianstadnicki.github.io/posts/tips-net-resource-assemblies/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Cracking rendariaka's packedcrackmev1.0","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/crackmes-rendariaka-packedcrackmev1-0\/"},"genre":"posts","keywords":"reverse engineering, crackmes.one, x86, unpacking","wordcount":574,"url":"https:\/\/brianstadnicki.github.io\/posts\/crackmes-rendariaka-packedcrackmev1-0\/","datePublished":"2021-11-11T00:00:00+00:00","dateModified":"2021-11-11T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":''==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:''==="dark")&&document.body.setAttribute("theme","dark")</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
-</div><div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> Posts </a><a class=menu-item href=/resume.pdf> Resume </a><a class=menu-item href=/tags/> Tags </a><a class=menu-item href=/categories/> Categories </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div></div></div></header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="Brian Stadnicki">Brian Stadnicki</a>
-</div><div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i>
-</a></div></div></header><div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div></div><main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>Contents</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Cracking rendariaka's packedcrackmev1.0</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/crackmes/><i class="far fa-folder fa-fw"></i>crackmes</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-11-11>2021-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;574 words&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div></div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>Contents</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#first-run>First run</a></li><li><a href=#initial-static-analysis>Initial static analysis</a></li><li><a href=#dumping>Dumping</a></li><li><a href=#analysing-dump>Analysing dump</a></li><li><a href=#success>Success</a></li></ul></nav></div></div><div class=content id=content><p>This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is <a href=https://crackmes.one/crackme/5ab77f6633c5d40ad448cbee target=_blank rel="noopener noreffer">rendariaka&rsquo;s packedcrackmev1.0</a></p><table>
-<thead>
-<tr>
-<th>Property</th><th>Value</th></tr></thead><tbody>
-<tr>
-<td>Language</td><td>C/C++</td></tr><tr>
-<td>Platform</td><td>Windows</td></tr><tr>
-<td>Difficulty</td><td>2.0</td></tr><tr>
-<td>Quality</td><td>4.0</td></tr><tr>
-<td>Arch</td><td>x86</td></tr></tbody></table><h2 id=first-run>First run</h2><pre tabindex=0><code>Enter serial number:
+Initial static analysis As by the name suggests, this crackme is packed."><meta name=application-name content="Brian Stadnicki"><meta name=apple-mobile-web-app-title content="Brian Stadnicki"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://brianstadnicki.github.io/posts/crackmes-rendariaka-packedcrackmev1-0/><link rel=prev href=https://brianstadnicki.github.io/posts/malware-vzlom-vk/><link rel=next href=https://brianstadnicki.github.io/posts/tips-net-resource-assemblies/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Cracking rendariaka's packedcrackmev1.0","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/brianstadnicki.github.io\/posts\/crackmes-rendariaka-packedcrackmev1-0\/"},"genre":"posts","keywords":"reverse engineering, crackmes.one, x86, unpacking","wordcount":574,"url":"https:\/\/brianstadnicki.github.io\/posts\/crackmes-rendariaka-packedcrackmev1-0\/","datePublished":"2021-11-11T00:00:00+00:00","dateModified":"2021-11-11T00:00:00+00:00","publisher":{"@type":"Organization","name":"Brian Stadnicki"},"author":{"@type":"Person","name":"Brian Stadnicki"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":''==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:''==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Brian Stadnicki">Brian Stadnicki</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/resume.pdf>Resume </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Brian Stadnicki">Brian Stadnicki</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/resume.pdf title>Resume</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Cracking rendariaka's packedcrackmev1.0</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>Brian Stadnicki</a></span>&nbsp;<span class=post-category>included in <a href=/categories/crackmes/><i class="far fa-folder fa-fw"></i>crackmes</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-11-11>2021-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;574 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#first-run>First run</a></li><li><a href=#initial-static-analysis>Initial static analysis</a></li><li><a href=#dumping>Dumping</a></li><li><a href=#analysing-dump>Analysing dump</a></li><li><a href=#success>Success</a></li></ul></nav></div></div><div class=content id=content><p>This crackme is packed unlike the previous ones. We&rsquo;ll be unpacking it manually as an exercise. The crackme is <a href=https://crackmes.one/crackme/5ab77f6633c5d40ad448cbee target=_blank rel="noopener noreffer">rendariaka&rsquo;s packedcrackmev1.0</a></p><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>Language</td><td>C/C++</td></tr><tr><td>Platform</td><td>Windows</td></tr><tr><td>Difficulty</td><td>2.0</td></tr><tr><td>Quality</td><td>4.0</td></tr><tr><td>Arch</td><td>x86</td></tr></tbody></table><h2 id=first-run>First run</h2><pre tabindex=0><code>Enter serial number:
 </code></pre><p>Entering the incorrect serial causes it to exit.</p><h2 id=initial-static-analysis>Initial static analysis</h2><p>As by the name suggests, this crackme is packed.</p><pre tabindex=0><code>+-----------------------------------------------------------------+
 |+-------------------------------------------------------------+-+|
 ||                         Data                                | ||
@@ -68,53 +15,11 @@ Initial static analysis As by the name suggests, this crackme is packed.">
                                                                 |
                                                                 |
                                              Tiny bit of code---+
-</code></pre><p>This is proved again by IDA Pro.</p><p>According to Detect It Easy, the build information is:</p><table>
-<thead>
-<tr>
-<th>Property</th><th>Value</th></tr></thead><tbody>
-<tr>
-<td>protector</td><td>Exe Shield(1.3RC)[-]</td></tr><tr>
-<td>protector</td><td>Yoda&rsquo;s Crypter(1.3)[-]</td></tr><tr>
-<td>compiler</td><td>MinGW(-)[-]</td></tr><tr>
-<td>linker</td><td>GNU linker Id (GNU Binutils)(2.56*)[Console32, console]</td></tr></tbody></table><p>I&rsquo;ve identified that the protector is <code>Yoda's Crypter 1.3</code>, as the Nauz File Detector gave only that and it&rsquo;s unlikely this was packed twice.</p><table>
-<thead>
-<tr>
-<th>property</th><th>value</th><th>value</th><th>value</th><th>value</th><th>value</th><th>value</th></tr></thead><tbody>
-<tr>
-<td>name</td><td>.text</td><td>.data</td><td>.rdata</td><td>.bss</td><td>.idata</td><td>yC</td></tr><tr>
-<td>entropy</td><td>7.993</td><td>7.898</td><td>4.400</td><td>n/a</td><td>4.791</td><td>7.883</td></tr><tr>
-<td>file-ratio (99.54%)</td><td>93.68 %</td><td>0.23 %</td><td>3.25 %</td><td>n/a</td><td>0.93 %</td><td>1.45 %</td></tr><tr>
-<td>raw-address</td><td>0x00000400</td><td>0x00032C00</td><td>0x00032E00</td><td>0x00000000</td><td>0x00034A00</td><td>0x00035200</td></tr><tr>
-<td>raw-size (219774 bytes)</td><td>0x00032800 (206848 bytes)</td><td>0x00000200 (512 bytes)</td><td>0x00001C00 (7168 bytes)</td><td>0x00000000 (0 bytes)</td><td>0x00000800 (2048 bytes)</td><td>0x00000C7E (3198 bytes)</td></tr><tr>
-<td>virtual-address</td><td>0x00401000</td><td>0x00434000</td><td>0x00435000</td><td>0x00437000</td><td>0x0043C000</td><td>0x0043D000</td></tr><tr>
-<td>virtual-size (242956 bytes)</td><td>0x000326E0 (206560 bytes)</td><td>0x00000140 (320 bytes)</td><td>0x00001A70 (6768 bytes)</td><td>0x00004AA0 (19104 bytes)</td><td>0x000007DC (2012 bytes)</td><td>0x00002000 (8192 bytes)</td></tr><tr>
-<td>entry-point</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0x0003D060</td></tr><tr>
-<td>characteristics</td><td>0xE0000060</td><td>0xC0000040</td><td>0xC0000040</td><td>0xC0000080</td><td>0xC0000040</td><td>0xE00000E0</td></tr><tr>
-<td>writable</td><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td></tr><tr>
-<td>executable</td><td>x</td><td>-</td><td>-</td><td>-</td><td>-</td><td>x</td></tr><tr>
-<td>shareable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr>
-<td>discardable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr>
-<td>initialized-data</td><td>x</td><td>x</td><td>x</td><td>-</td><td>x</td><td>x</td></tr><tr>
-<td>uninitialized-data</td><td>-</td><td>-</td><td>-</td><td>x</td><td>-</td><td>x</td></tr><tr>
-<td>unreadable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr>
-<td>self-modifying</td><td>x</td><td>-</td><td>-</td><td>-</td><td>-</td><td>x</td></tr><tr>
-<td>virtualized</td><td>-</td><td>-</td><td>-</td><td>x</td><td>-</td><td>-</td></tr><tr>
-<td>file</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr></tbody></table><p>The sections <code>.text</code> and <code>.yC</code> look to be most of interest as they are marked as self-modifying.</p><h2 id=dumping>Dumping</h2><p>To figure out where the unpacked exe is, we can use <a href=https://github.com/hasherezade/tiny_tracer target=_blank rel="noopener noreffer">tiny tracer</a>, which nicely logs all the api calls of interest. I&rsquo;ll make a mental note to make a x32dbg version of this if I get the chance.</p><pre tabindex=0><code>3d060;section: [yC]
+</code></pre><p>This is proved again by IDA Pro.</p><p>According to Detect It Easy, the build information is:</p><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td>protector</td><td>Exe Shield(1.3RC)[-]</td></tr><tr><td>protector</td><td>Yoda&rsquo;s Crypter(1.3)[-]</td></tr><tr><td>compiler</td><td>MinGW(-)[-]</td></tr><tr><td>linker</td><td>GNU linker Id (GNU Binutils)(2.56*)[Console32, console]</td></tr></tbody></table><p>I&rsquo;ve identified that the protector is <code>Yoda's Crypter 1.3</code>, as the Nauz File Detector gave only that and it&rsquo;s unlikely this was packed twice.</p><table><thead><tr><th>property</th><th>value</th><th>value</th><th>value</th><th>value</th><th>value</th><th>value</th></tr></thead><tbody><tr><td>name</td><td>.text</td><td>.data</td><td>.rdata</td><td>.bss</td><td>.idata</td><td>yC</td></tr><tr><td>entropy</td><td>7.993</td><td>7.898</td><td>4.400</td><td>n/a</td><td>4.791</td><td>7.883</td></tr><tr><td>file-ratio (99.54%)</td><td>93.68 %</td><td>0.23 %</td><td>3.25 %</td><td>n/a</td><td>0.93 %</td><td>1.45 %</td></tr><tr><td>raw-address</td><td>0x00000400</td><td>0x00032C00</td><td>0x00032E00</td><td>0x00000000</td><td>0x00034A00</td><td>0x00035200</td></tr><tr><td>raw-size (219774 bytes)</td><td>0x00032800 (206848 bytes)</td><td>0x00000200 (512 bytes)</td><td>0x00001C00 (7168 bytes)</td><td>0x00000000 (0 bytes)</td><td>0x00000800 (2048 bytes)</td><td>0x00000C7E (3198 bytes)</td></tr><tr><td>virtual-address</td><td>0x00401000</td><td>0x00434000</td><td>0x00435000</td><td>0x00437000</td><td>0x0043C000</td><td>0x0043D000</td></tr><tr><td>virtual-size (242956 bytes)</td><td>0x000326E0 (206560 bytes)</td><td>0x00000140 (320 bytes)</td><td>0x00001A70 (6768 bytes)</td><td>0x00004AA0 (19104 bytes)</td><td>0x000007DC (2012 bytes)</td><td>0x00002000 (8192 bytes)</td></tr><tr><td>entry-point</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0x0003D060</td></tr><tr><td>characteristics</td><td>0xE0000060</td><td>0xC0000040</td><td>0xC0000040</td><td>0xC0000080</td><td>0xC0000040</td><td>0xE00000E0</td></tr><tr><td>writable</td><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td></tr><tr><td>executable</td><td>x</td><td>-</td><td>-</td><td>-</td><td>-</td><td>x</td></tr><tr><td>shareable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>discardable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>initialized-data</td><td>x</td><td>x</td><td>x</td><td>-</td><td>x</td><td>x</td></tr><tr><td>uninitialized-data</td><td>-</td><td>-</td><td>-</td><td>x</td><td>-</td><td>x</td></tr><tr><td>unreadable</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>self-modifying</td><td>x</td><td>-</td><td>-</td><td>-</td><td>-</td><td>x</td></tr><tr><td>virtualized</td><td>-</td><td>-</td><td>-</td><td>x</td><td>-</td><td>-</td></tr><tr><td>file</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td></tr></tbody></table><p>The sections <code>.text</code> and <code>.yC</code> look to be most of interest as they are marked as self-modifying.</p><h2 id=dumping>Dumping</h2><p>To figure out where the unpacked exe is, we can use <a href=https://github.com/hasherezade/tiny_tracer target=_blank rel="noopener noreffer">tiny tracer</a>, which nicely logs all the api calls of interest. I&rsquo;ll make a mental note to make a x32dbg version of this if I get the chance.</p><pre tabindex=0><code>3d060;section: [yC]
 ...
 1013;section: [.text]
 ...
-</code></pre><p>We can see here that execution moves over to the <code>.text</code> section, which confirms what we knew earlier as this section takes up most of the binary, yet is full of seemingly random data.</p><p>When I dump this section when the serial is asked for, it doesn&rsquo;t contain the <code>MZ</code> header, but IDA Pro does recognise some of the code. Therefore, this is effectively a partial unpacker, as the binary itself is overwritten in memory instead of creating a new one.</p><p>To dump the whole binary, the following sections need to be dumped:</p><table>
-<thead>
-<tr>
-<th>Address</th><th>Size</th><th>Info</th></tr></thead><tbody>
-<tr>
-<td>00400000</td><td>00001000</td><td>packedv1.0.exe</td></tr><tr>
-<td>00401000</td><td>00033000</td><td>&ldquo;.text&rdquo;</td></tr><tr>
-<td>00434000</td><td>00001000</td><td>&ldquo;.data&rdquo;</td></tr><tr>
-<td>00435000</td><td>00002000</td><td>&ldquo;.rdata&rdquo;</td></tr><tr>
-<td>00437000</td><td>00005000</td><td>&ldquo;.bss&rdquo;</td></tr><tr>
-<td>0043C000</td><td>00001000</td><td>&ldquo;.idata&rdquo;</td></tr><tr>
-<td>0043D000</td><td>00002000</td><td>&ldquo;yC&rdquo;</td></tr></tbody></table><p>We&rsquo;ll simply use Scylla to dump the process.</p><h2 id=analysing-dump>Analysing dump</h2><p>Using the string &ldquo;Enter serial number: \n&rdquo;, finding the responsible function is quite easy.</p><pre tabindex=0><code>           +-----+
+</code></pre><p>We can see here that execution moves over to the <code>.text</code> section, which confirms what we knew earlier as this section takes up most of the binary, yet is full of seemingly random data.</p><p>When I dump this section when the serial is asked for, it doesn&rsquo;t contain the <code>MZ</code> header, but IDA Pro does recognise some of the code. Therefore, this is effectively a partial unpacker, as the binary itself is overwritten in memory instead of creating a new one.</p><p>To dump the whole binary, the following sections need to be dumped:</p><table><thead><tr><th>Address</th><th>Size</th><th>Info</th></tr></thead><tbody><tr><td>00400000</td><td>00001000</td><td>packedv1.0.exe</td></tr><tr><td>00401000</td><td>00033000</td><td>&ldquo;.text&rdquo;</td></tr><tr><td>00434000</td><td>00001000</td><td>&ldquo;.data&rdquo;</td></tr><tr><td>00435000</td><td>00002000</td><td>&ldquo;.rdata&rdquo;</td></tr><tr><td>00437000</td><td>00005000</td><td>&ldquo;.bss&rdquo;</td></tr><tr><td>0043C000</td><td>00001000</td><td>&ldquo;.idata&rdquo;</td></tr><tr><td>0043D000</td><td>00002000</td><td>&ldquo;yC&rdquo;</td></tr></tbody></table><p>We&rsquo;ll simply use Scylla to dump the process.</p><h2 id=analysing-dump>Analysing dump</h2><p>Using the string &ldquo;Enter serial number: \n&rdquo;, finding the responsible function is quite easy.</p><pre tabindex=0><code>           +-----+
            |Print|
            +--+--+
               |
@@ -134,23 +39,6 @@ Initial static analysis As by the name suggests, this crackme is packed.">
 </code></pre><p>On a wild guess, let&rsquo;s try just entering 0x72436 and see what happens.</p><h2 id=success>Success</h2><pre tabindex=0><code>Enter serial number:
 468022
 Serial number is correct!
-</code></pre><p>This was an interesting crackme, even if simple apart from figuring out how to correctly dump it.</p></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>Updated on 2021-11-11</span>
-</div><div class=post-info-license></div></div><div class=post-info-line>
-<div class=post-info-md></div><div class=post-info-share>
-<span></span>
-</div></div></div><div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/crackmes.one/>crackmes.one</a>,&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/unpacking/>unpacking</a></section><section>
-<span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
-</section></div><div class=post-nav><a href=/posts/malware-vzlom-vk/ class=prev rel=prev title="Analysis of vzlom_vk (Failed)"><i class="fas fa-angle-left fa-fw"></i>Analysis of vzlom_vk (Failed)</a>
-<a href=/posts/tips-net-resource-assemblies/ class=next rel=next title="Modifying .NET embedded resources">Modifying .NET embedded resources<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer>
-<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title="View Comments">
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body></html>
+</code></pre><p>This was an interesting crackme, even if simple apart from figuring out how to correctly dump it.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2021-11-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/reverse-engineering/>reverse engineering</a>,&nbsp;<a href=/tags/crackmes.one/>crackmes.one</a>,&nbsp;<a href=/tags/x86/>x86</a>,&nbsp;<a href=/tags/unpacking/>unpacking</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/malware-vzlom-vk/ class=prev rel=prev title="Analysis of vzlom_vk (Failed)"><i class="fas fa-angle-left fa-fw"></i>Analysis of vzlom_vk (Failed)</a>
+<a href=/posts/tips-net-resource-assemblies/ class=next rel=next title="Modifying .NET embedded resources">Modifying .NET embedded resources<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.94.1">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank></a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script type=text/javascript src=/js/theme.min.js></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f5dd1cc794e748f0a1fa431f62434694"}'></script></body></html>
