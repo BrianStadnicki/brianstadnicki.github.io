@@ -2,3 +2,5 @@ public
 resources
 content/posts/malware-sbidiot-dec2021/samples/*
 /.idea/*
+content/posts/vulnerability-asyncrat-rce/AsyncRAT-C#.zip
+content/posts/vulnerability-asyncrat-rce/demo.mp4
