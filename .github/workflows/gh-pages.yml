@@ -28,6 +28,8 @@ jobs:
           
       - name: Compile typescript
         uses: icrawl/action-tsc@v1
+        with:
+          build: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
