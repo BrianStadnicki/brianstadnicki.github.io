@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 12
           
+      - name: yarn install
+        run: yarn install
+          
       - name: Install typescript compiler
         uses: iCrawl/action-tsc@v1
           
