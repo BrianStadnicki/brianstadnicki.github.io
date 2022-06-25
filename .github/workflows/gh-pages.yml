@@ -14,23 +14,7 @@ jobs:
         with:
           submodules: recursive  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-          
-      - name: Install node 12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          
-      - name: yarn install
-        run: yarn install
-          
-      - name: Install typescript compiler
-        uses: iCrawl/action-tsc@v1
-          
-      - name: Compile typescript
-        uses: icrawl/action-tsc@v1
-        with:
-          build: 'static'
-
+      
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
