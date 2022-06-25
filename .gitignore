@@ -10,3 +10,4 @@ static/canopy/*
 static/seneca/*
 .idea
 .hugo_build.lock
+/node_modules/

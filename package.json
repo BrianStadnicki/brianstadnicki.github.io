@@ -1,0 +1,13 @@
+{
+  "name": "brianstadnicki.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://BrianStadnicki@github.com/BrianStadnicki/brianstadnicki.github.io.git"
+  },
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
