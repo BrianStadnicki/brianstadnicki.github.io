@@ -1,3 +1,7 @@
 [submodule "static/seneca"]
 	path = static/seneca
 	url = https://github.com/BrianStadnicki/seneca-cheat.git
+
+[submodule "static/canopy/dev"]
+	path = static/canopy/dev
+	url = https://github.com/BrianStadnicki/canopy.git
