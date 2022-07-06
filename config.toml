@@ -47,8 +47,6 @@ theme = "LoveIt"
     rss = 10
   [params.social]
     GitHub = "BrianStadnicki"
-    Linkedin = "brian-stadnicki-474997214"
-    Twitter = "BrianStadnicki"
     Hackernews = "FastEatSlow"
     Email = "stadnickibrian@gmail.com"
     RSS = true
@@ -73,13 +71,10 @@ theme = "LoveIt"
 [menu]
   [[menu.main]]
     identifier = "posts"
-    # you can add extra information before the name (HTML format is supported), such as icons
     pre = ""
-    # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Posts"
     url = "/posts/"
-    # title will be shown when you hover on this menu link
     title = ""
     weight = 1
   [[menu.main]]
