@@ -69,6 +69,14 @@ theme = "LoveIt"
       maxShownLines = 10
 
 [menu]
+[[menu.main]]
+    identifier = "canopy"
+    pre = ""
+    post = ""
+    name = "Canopy"
+    url = "/canopy/dev/"
+    title = ""
+    weight = 1
   [[menu.main]]
     identifier = "posts"
     pre = ""
@@ -76,7 +84,7 @@ theme = "LoveIt"
     name = "Posts"
     url = "/posts/"
     title = ""
-    weight = 1
+    weight = 2
   [[menu.main]]
     identifier = "tags"
     pre = ""
@@ -84,7 +92,7 @@ theme = "LoveIt"
     name = "Tags"
     url = "/tags/"
     title = ""
-    weight = 2
+    weight = 3
   [[menu.main]]
     identifier = "categories"
     pre = ""
@@ -92,7 +100,7 @@ theme = "LoveIt"
     name = "Categories"
     url = "/categories/"
     title = ""
-    weight = 3
+    weight = 4
 
 # Markup related configuration in Hugo
 [markup]
