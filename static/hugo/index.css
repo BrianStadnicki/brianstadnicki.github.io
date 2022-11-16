@@ -1,0 +1,20 @@
+details {
+    margin-bottom: 20px;
+}
+
+details > summary {
+    width: 100%;
+    padding: 15px;
+    font-size: large;
+}
+
+details > :not(summary) {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+details > div > p {
+    display: inline-block;
+    font-size: large;
+    min-width: 100px;
+}
