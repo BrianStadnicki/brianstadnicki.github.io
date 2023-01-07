@@ -11,7 +11,7 @@ window.onload = () => {
                                 section["chapters"].map(chapter => `
                                     <div>
                                         <p>${chapter["title"]}</p>
-                                        <audio controls>
+                                        <audio controls="controls" preload="none">
                                             <source src="${chapter["audioFile"]}" type="audio/mpeg">
                                         </audio>
                                     </div>
