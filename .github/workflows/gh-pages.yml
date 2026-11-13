@@ -23,19 +23,19 @@ jobs:
           extended: true
       
       - name: Setup Node
-        uses: actions/setup-node@v4
         working-directory: ecm3428-algorithms-coursework/aquaflow
+        uses: actions/setup-node@v4
         with:
           node-version: 24.22.1
           cache: yarn
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
         working-directory: ecm3428-algorithms-coursework/aquaflow
+        run: yarn install --frozen-lockfile
 
       - name: Build
-        run: yarn build --outDir static/aquaflow
         working-directory: ecm3428-algorithms-coursework/aquaflow
+        run: yarn build --outDir static/aquaflow
       
       - name: Build
         run: hugo --minify
