@@ -1,3 +1,7 @@
 [submodule "static/canopy/dev"]
 	path = static/canopy/dev
 	url = https://github.com/BrianStadnicki/canopy.git
+
+[submodule "ecm3428-algorithms-coursework"]
+	path = ecm3428-algorithms-coursework
+	url = https://github.com/BrianStadnicki/ecm3428-algorithms-coursework
