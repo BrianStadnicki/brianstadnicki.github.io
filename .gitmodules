@@ -4,4 +4,4 @@
 
 [submodule "ecm3428-algorithms-coursework"]
 	path = ecm3428-algorithms-coursework
-	url = https://github.com/BrianStadnicki/ecm3428-algorithms-coursework.git
+	url = "https://github.com/BrianStadnicki/ecm3428-algorithms-coursework.git"
