@@ -35,7 +35,7 @@ jobs:
 
       - name: Build
         working-directory: ecm3428-algorithms-coursework/aquaflow
-        run: yarn build --outDir ../../static/aquaflow
+        run: yarn build --outDir ../../static/aquaflow --base /aquaflow/
       
       - name: Build
         run: hugo --minify
